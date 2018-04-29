@@ -13911,3 +13911,21 @@ span.flatpickr-weekday {
 .mar-top-20 {
     margin-top: 20px;
 }
+.mar-bot-60{
+    margin-bottom: 60px;
+}
+
+.imgs {
+    display: flex;
+    justify-content: space-around;
+}
+
+img-new{
+   width: 50px;
+   padding-bottom: 20px;
+}
+
+
+a.card-block:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}

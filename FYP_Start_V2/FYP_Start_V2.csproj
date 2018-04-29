@@ -65,6 +65,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="img\application.png" />
+    <Content Include="img\compressed.png" />
+    <Content Include="img\documents.png" />
+    <Content Include="img\images.png" />
+    <Content Include="img\misc.png" />
+    <Content Include="img\music.png" />
+    <Content Include="img\video.png" />
+    <Content Include="Login_Register.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.eot" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.ttf" />
@@ -313,7 +321,17 @@
     <Compile Include="Home.aspx.designer.cs">
       <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Login_Register.aspx.cs">
+      <DependentUpon>Login_Register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login_Register.aspx.designer.cs">
+      <DependentUpon>Login_Register.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Upload\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

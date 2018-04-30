@@ -83,13 +83,7 @@
                         </div>
                     </li>
                     <li >
-                        <a href="#">Login</a>
-                    </li>
-                    <li>
-                        |
-                    </li>
-                    <li >
-                        <a href="#">Register</a>
+                        <a href="Login_Register.aspx">Login OR Register</a>
                     </li>
                 </ul>
         </header>
@@ -105,8 +99,7 @@
                         </div>
 
                         <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">Login</a>
-                            <a class="dropdown-item" href="#">Register</a>
+                            <a class="dropdown-item" href="Login_Register.aspx">Login</a>
                             <%--<a class="dropdown-item" href="#">Logout</a>--%>
                         </div>
                     </div>

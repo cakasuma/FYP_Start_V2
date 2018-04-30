@@ -31,6 +31,7 @@
                                 <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/video.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">3</span></a>
                                 <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/misc.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">30+</span></a>
                         </div>
+
                     </div>
                         </div>
         <script type="text/javascript">

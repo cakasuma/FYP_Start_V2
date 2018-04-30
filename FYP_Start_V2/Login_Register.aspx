@@ -36,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <form method="post" runat="server" action="Login_Register.aspx?Login=True">
+                <form method="post" action="Login_Register.aspx?Login=True">
                 <div class="login__block__body">
                     <div class="form-group form-group--float form-group--centered">
                         <input type="text" name="emaillog" class="form-control" required>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                <form method="post" runat="server" action="Login_Register.aspx?Register=True">
+                <form method="post" action="Login_Register.aspx?Register=True">
                 <div class="login__block__body">
                     <div class="form-group form-group--float form-group--centered">
                         <input type="text" name="namereg" class="form-control" required>
@@ -146,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <form method="post" runat="server" action="Login_Register.aspx?forgotpass=True">
+                <form method="post" action="Login_Register.aspx?forgotpass=True">
                 <div class="login__block__body">
                     <p class="mt-4">Enter your email address to reset your password</p>
 

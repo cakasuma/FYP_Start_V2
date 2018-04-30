@@ -38,5 +38,32 @@ namespace FYP_Start_V2
             }
 
         }
+
+        public bool Login(String email, String password)
+        {
+            String query = "Select Email, Password, User_Type from T_User where Email = '" + email + "' and Password = '" + password + "'";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+                System.Web.HttpContext.Current.Session["Email"] = email;
+
+                while (sdr.Read())
+                {
+                    System.Web.HttpContext.Current.Session["UserType"] = sdr["User_Type"].ToString();
+                }
+
+            }
+
+
+
+
+            closeConnection(conn);
+            return flag;
+        }
     }
 }

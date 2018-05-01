@@ -14,6 +14,70 @@
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
+        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="js/sweetalert.js"></script>
+        <script type="text/javascript">
+            function getUrlVars() {
+                var vars = [], hash;
+                var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+                for (var i = 0; i < hashes.length; i++) {
+                    hash = hashes[i].split('=');
+                    vars.push(hash[0]);
+                    vars[hash[0]] = hash[1];
+                }
+                return vars;
+            }
+            $(document).ready(function () {
+                if (getUrlVars()["nouser"] != null) {
+                    swal("Oops", "You are not belong to anyone", "error");
+                }
+                if (getUrlVars()["loginfailed"] != null) {
+                    swal("Oops", "Login Failed", "error");
+                }
+
+                if (getUrlVars()["accnotverified"] != null) {
+                    swal("Your account have not verified", "Please verified through your email", "error");
+                }
+
+                if (getUrlVars()["forpasssuccess"] != null) {
+                    swal("Success!", "Please check your email to get the password", "error");
+                }
+
+                if (getUrlVars()["forpassfailed"] != null) {
+                    swal("Oops!", "I don't think that is the correct email", "error");
+                }
+                
+                if (getUrlVars()["actvationsuccess"] != null) {
+                    swal("Congrats!", "Your account is verified", "success");
+                }
+
+                if (getUrlVars()["activationfailed"] != null) {
+                    swal("Oops", "Login Failed", "error");
+                }
+
+                if (getUrlVars()["emailexist"] != null) {
+                    swal("Oops", "Email already exists", "error");
+                }
+                if (getUrlVars()["registrationsuccess"] != null) {
+                    swal("Your account has been created!", "Verification link has been sent", "success");
+                }
+
+                var password = document.getElementById("pass")
+                    , confirm_password = document.getElementById("confirm_pass");
+
+                function validatePassword() {
+                    if (password.value != confirm_password.value) {
+                        confirm_password.setCustomValidity("Passwords do not match");
+                    } else {
+                        confirm_password.setCustomValidity('');
+                    }
+                }
+
+                password.onchange = validatePassword;
+                confirm_password.onkeyup = validatePassword;
+
+            });
+        </script>
     </head>
 
     <body data-ma-theme="green">
@@ -39,7 +103,7 @@
                 <form method="post" action="Login_Register.aspx?Login=True">
                 <div class="login__block__body">
                     <div class="form-group form-group--float form-group--centered">
-                        <input type="text" name="emaillog" class="form-control" required>
+                        <input type="email" name="emaillog" class="form-control" required>
                         <label>Email Address</label>
                         <i class="form-group__bar"></i>
                     </div>
@@ -81,14 +145,20 @@
                     </div>
 
                     <div class="form-group form-group--float form-group--centered">
-                        <input type="text" name="emailreg" class="form-control" required>
+                        <input type="email" name="emailreg" class="form-control" required>
                         <label>Email Address</label>
                         <i class="form-group__bar"></i>
                     </div>
 
                     <div class="form-group form-group--float form-group--centered">
-                        <input type="password" name="passreg" class="form-control" required>
+                        <input type="password" name="passreg" id="pass" class="form-control" required>
                         <label>Password</label>
+                        <i class="form-group__bar"></i>
+                    </div>
+
+                    <div class="form-group form-group--float form-group--centered">
+                        <input type="password" id="confirm_pass" class="form-control" required>
+                        <label>Confirm Password</label>
                         <i class="form-group__bar"></i>
                     </div>
 
@@ -151,7 +221,7 @@
                     <p class="mt-4">Enter your email address to reset your password</p>
 
                     <div class="form-group form-group--float form-group--centered">
-                        <input type="text" class="form-control" name="emailfor" required>
+                        <input type="email" class="form-control" name="emailfor" required>
                         <label>Email Address</label>
                         <i class="form-group__bar"></i>
                     </div>
@@ -163,11 +233,11 @@
         </div>
 
         <!-- Vendors -->
-        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+        
         <script src="vendors/bower_components/tether/dist/js/tether.min.js"></script>
         <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
         <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
-
+        
         <!-- App functions and actions -->
         <script src="js/app.min.js"></script>
     </body>

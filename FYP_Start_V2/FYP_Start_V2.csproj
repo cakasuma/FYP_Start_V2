@@ -73,6 +73,7 @@
     <Content Include="img\misc.png" />
     <Content Include="img\music.png" />
     <Content Include="img\video.png" />
+    <Content Include="js\sweetalert.js" />
     <Content Include="Login_Register.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.eot" />
@@ -99,6 +100,7 @@
     <Content Include="vendors\bower_components\material-design-iconic-font\dist\fonts\Material-Design-Iconic-Fontd1f1.woff" />
     <Content Include="vendors\bower_components\material-design-iconic-font\dist\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
     <Content Include="Default.Master" />
+    <None Include="Properties\PublishProfiles\FYPStartV220180430021446 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

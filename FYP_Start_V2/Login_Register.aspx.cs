@@ -4,6 +4,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Net;
 using System.Net.Mail;
+using System.Security.Cryptography;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -12,8 +14,7 @@ namespace FYP_Start_V2
 {
     public partial class Login_Register : System.Web.UI.Page
     {
-        String namefor = "";
-        String passfor = "";
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -35,25 +36,30 @@ namespace FYP_Start_V2
             if(Request.QueryString["forgotpass"] != null)
             {
                 String Email = Request.Form["emailfor"];
-                
-                String query = "Select Name, Password FROM T_User WHERE Email='" + Email + "'";
+                string forpassid = Guid.NewGuid().ToString();
+                string name = "";
+                String query = "Select Name FROM T_User WHERE Email='" + Email + "'";
                 SqlConnection conn = Connection.getConnection();
                 conn.Open();
                 SqlCommand cm = new SqlCommand(query, conn);
                 SqlDataReader sdr = cm.ExecuteReader();
                 while (sdr.Read())
                 {
-                    namefor = sdr["Name"].ToString();
-                    passfor = sdr["Password"].ToString();
+                    name = sdr["Name"].ToString();
                 }
 
-                if (!string.IsNullOrEmpty(passfor))
+                if (!string.IsNullOrEmpty(name))
                 {
+
                     MailMessage mm = new MailMessage();
                     mm.From = new MailAddress("amammustofa@gmail.com");
                     mm.To.Add(Email);
-                    mm.Subject = "Password Recovery";
-                    mm.Body = string.Format("Hi {0},<br /><br />Your password is {1}.<br /><br />Thank You.", namefor, passfor);
+                    mm.Subject = "Reset Password";
+                    string body = "Hello " + Email + ",";
+                    body += "<br /><br />Please click the following link to reset your password";
+                    body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("Login_Register.aspx", "Reset_Password.aspx?email=" + Email + "&forpassid=" + forpassid) + "'>Click here to reset your password.</a>";
+                    body += "<br /><br />Thanks";
+                    mm.Body = body;
                     mm.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();
                     smtp.Host = "smtp.gmail.com";
@@ -70,13 +76,12 @@ namespace FYP_Start_V2
                 else
                 {
                     Response.Redirect("Login_Register.aspx?forpassfailed=true");
-
                 }
             }
             if (Request.QueryString["Login"] != null)
             {
                 String Email = Request.Form["emaillog"];
-                String Password = Request.Form["passlog"];
+                string Password = Request.Form["passlog"];
                 bool[] log_in = new Connection().Login(Email, Password);
                 if (log_in[0] == true)
                 {
@@ -85,11 +90,11 @@ namespace FYP_Start_V2
                         String currentUser = Session["UserType"].ToString();
                         if (currentUser.Equals("Customer"))
                         {
-                            Response.Redirect("Home.aspx");
+                            Response.Redirect("User_Home.aspx");
                         }
                         else if (currentUser.Equals("Admin"))
                         {
-                            Response.Redirect("Home.aspx");
+                            Response.Redirect("User_Home.aspx");
                         }
                         else
                         {
@@ -110,12 +115,14 @@ namespace FYP_Start_V2
 
             if (Request.QueryString["Register"] != null)
             {
-                String Email = Request.Form["emailreg"]; ;
-                String Password = Request.Form["passreg"]; ;
-                String Name = Request.Form["namereg"]; ;
-                String Contact = Request.Form["contactreg"]; ;
+                String Email = Request.Form["emailreg"];
+                string Password = Request.Form["passreg"];
+                string hashpassword = new Cryptography().HashPass(Password);
+                System.Diagnostics.Debug.WriteLine(hashpassword);
+                String Name = Request.Form["namereg"];
+                String Contact = Request.Form["contactreg"];
                 String UserType = "Customer";
-                String[] regUserData = { Email, Password, Name, Contact, UserType };
+                String[] regUserData = {Email,hashpassword,Name,Contact,UserType};
                 int userId = Connection.executeQueryRegister(regUserData);
                 if (userId == -1)
                 {

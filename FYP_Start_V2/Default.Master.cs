@@ -9,9 +9,16 @@ namespace FYP_Start_V2
 {
     public partial class Default : System.Web.UI.MasterPage
     {
+        public string name = "";
+        public string email = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Session["Email"] != null)
+            {
+                email = Session["email"].ToString();
+                name = Connection.getUserName(email);
+            }
         }
+
     }
 }

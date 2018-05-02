@@ -65,7 +65,16 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Default_About_Us.aspx" />
+    <Content Include="Admin_Add_Video.aspx" />
+    <Content Include="Admin_Decryption_Stat.aspx" />
+    <Content Include="Admin_Delete_Video.aspx" />
+    <Content Include="Admin_Edit_Video.aspx" />
+    <Content Include="Admin_Encryption_Stat.aspx" />
     <Content Include="Admin_Home.aspx" />
+    <Content Include="App_AES_Encryption.aspx" />
+    <Content Include="App_DES_Encryption.aspx" />
+    <Content Include="Default_Feedback.aspx" />
     <Content Include="img\application.png" />
     <Content Include="img\compressed.png" />
     <Content Include="img\documents.png" />
@@ -75,6 +84,7 @@
     <Content Include="img\video.png" />
     <Content Include="js\sweetalert.js" />
     <Content Include="Login_Register.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="packages.config" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.eot" />
     <Content Include="fonts\roboto\Roboto-Bold-webfont.ttf" />
@@ -92,6 +102,10 @@
     <Content Include="fonts\roboto\Roboto-Regular-webfont.ttf" />
     <Content Include="fonts\roboto\Roboto-Regular-webfont.woff" />
     <Content Include="fonts\roboto\Roboto-Regular-webfontd41d.eot" />
+    <Content Include="App_RSA_Encryption.aspx" />
+    <Content Include="Reset_Password.aspx" />
+    <Content Include="Search.aspx" />
+    <Content Include="User_Profile.aspx" />
     <Content Include="vendors\bower_components\lightgallery\dist\fonts\lgd41d.eot" />
     <Content Include="vendors\bower_components\lightgallery\dist\fonts\lgd641.eot" />
     <Content Include="vendors\bower_components\lightgallery\dist\fonts\lgd641.ttf" />
@@ -101,6 +115,7 @@
     <Content Include="vendors\bower_components\material-design-iconic-font\dist\fonts\Material-Design-Iconic-Fontd1f1.woff2" />
     <Content Include="Default.Master" />
     <None Include="Properties\PublishProfiles\FYPStartV220180430021446 - Web Deploy.pubxml" />
+    <Content Include="Admin.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -230,7 +245,7 @@
     <Content Include="fonts\roboto\Roboto-Light-webfont.svg" />
     <Content Include="fonts\roboto\Roboto-Medium-webfont.svg" />
     <Content Include="fonts\roboto\Roboto-Regular-webfont.svg" />
-    <Content Include="Home.aspx" />
+    <Content Include="User_Home.aspx" />
     <Content Include="img\calendar\april.jpg" />
     <Content Include="img\calendar\august.jpg" />
     <Content Include="img\calendar\december.jpg" />
@@ -306,15 +321,66 @@
     <Content Include="vendors\bower_components\trumbowyg\dist\ui\trumbowyg.min.css" />
     <Content Include="vendors\bower_components\Waves\dist\waves.min.js" />
     <Content Include="vendors\jquery.sparkline\jquery.sparkline.min.js" />
+    <Content Include="App_Video_Learn.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cryptography.cs" />
+    <Compile Include="Default_About_Us.aspx.cs">
+      <DependentUpon>Default_About_Us.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default_About_Us.aspx.designer.cs">
+      <DependentUpon>Default_About_Us.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Add_Video.aspx.cs">
+      <DependentUpon>Admin_Add_Video.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Add_Video.aspx.designer.cs">
+      <DependentUpon>Admin_Add_Video.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Decryption_Stat.aspx.cs">
+      <DependentUpon>Admin_Decryption_Stat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Decryption_Stat.aspx.designer.cs">
+      <DependentUpon>Admin_Decryption_Stat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Delete_Video.aspx.cs">
+      <DependentUpon>Admin_Delete_Video.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Delete_Video.aspx.designer.cs">
+      <DependentUpon>Admin_Delete_Video.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Edit_Video.aspx.cs">
+      <DependentUpon>Admin_Edit_Video.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Edit_Video.aspx.designer.cs">
+      <DependentUpon>Admin_Edit_Video.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Encryption_Stat.aspx.cs">
+      <DependentUpon>Admin_Encryption_Stat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Encryption_Stat.aspx.designer.cs">
+      <DependentUpon>Admin_Encryption_Stat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Admin_Home.aspx.cs">
       <DependentUpon>Admin_Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin_Home.aspx.designer.cs">
       <DependentUpon>Admin_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_AES_Encryption.aspx.cs">
+      <DependentUpon>App_AES_Encryption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_AES_Encryption.aspx.designer.cs">
+      <DependentUpon>App_AES_Encryption.aspx</DependentUpon>
     </Compile>
     <Compile Include="Connection.cs" />
     <Compile Include="Default.Master.cs">
@@ -324,12 +390,40 @@
     <Compile Include="Default.Master.designer.cs">
       <DependentUpon>Default.Master</DependentUpon>
     </Compile>
-    <Compile Include="Home.aspx.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="App_DES_Encryption.aspx.cs">
+      <DependentUpon>App_DES_Encryption.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Home.aspx.designer.cs">
-      <DependentUpon>Home.aspx</DependentUpon>
+    <Compile Include="App_DES_Encryption.aspx.designer.cs">
+      <DependentUpon>App_DES_Encryption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Default_Feedback.aspx.cs">
+      <DependentUpon>Default_Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default_Feedback.aspx.designer.cs">
+      <DependentUpon>Default_Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Reset_Password.aspx.cs">
+      <DependentUpon>Reset_Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Reset_Password.aspx.designer.cs">
+      <DependentUpon>Reset_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Home.aspx.cs">
+      <DependentUpon>User_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Home.aspx.designer.cs">
+      <DependentUpon>User_Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login_Register.aspx.cs">
       <DependentUpon>Login_Register.aspx</DependentUpon>
@@ -338,7 +432,42 @@
     <Compile Include="Login_Register.aspx.designer.cs">
       <DependentUpon>Login_Register.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="App_RSA_Encryption.aspx.cs">
+      <DependentUpon>App_RSA_Encryption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_RSA_Encryption.aspx.designer.cs">
+      <DependentUpon>App_RSA_Encryption.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Search.aspx.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Search.aspx.designer.cs">
+      <DependentUpon>Search.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Profile.aspx.cs">
+      <DependentUpon>User_Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Profile.aspx.designer.cs">
+      <DependentUpon>User_Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Video_Learn.aspx.cs">
+      <DependentUpon>App_Video_Learn.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App_Video_Learn.aspx.designer.cs">
+      <DependentUpon>App_Video_Learn.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Upload\" />

@@ -81,9 +81,11 @@ namespace FYP_Start_V2
 
         }
 
-        public bool[] Login(String email, String password)
+        public bool[] Login(String email, string password)
         {
-            String query = "Select * from T_User inner join UserActivation on T_User.User_Id = UserActivation.UserId where Email = '" + email + "' and Password = '" + password + "'";
+            string hashpassword = new Cryptography().HashPass(password);
+            System.Diagnostics.Debug.WriteLine(hashpassword);
+            String query = "SELECT * FROM T_User inner join UserActivation on T_User.User_Id = UserActivation.UserId where Email = '"+email+"' and Password = '"+hashpassword+"';";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
@@ -103,6 +105,34 @@ namespace FYP_Start_V2
             }
             closeConnection(conn);
             return flag;
+        }
+
+        public static string getUserName(String session)
+        {
+            string UserName = "";
+
+            String sqlQ = "Select Name From T_User Where Email='" + session + "'";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    UserName = sdr["name"].ToString();
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return UserName;
         }
 
 

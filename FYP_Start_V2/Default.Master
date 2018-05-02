@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="header__logo hidden-sm-down">
-                    <h1><a href="Home.aspx">AFMOS System</a></h1>
+                    <h1><a href="User_Home.aspx">AFMOS System</a></h1>
                 </div>
                 <form class="search">
                     <div class="search__inner">
@@ -59,7 +59,7 @@
                 <ul class="top-nav">
                     <li class="hidden-xl-up"><a href="#" data-ma-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
                     <li class="dropdown hidden-xs-down">
-                        <a href="#" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+                        <a href="Search.aspx" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
 
                         <div class="dropdown-menu dropdown-menu-right">
                             <div class="dropdown-item theme-switch">
@@ -90,39 +90,61 @@
         </header>
         <aside class="sidebar">
                 <div class="scrollbar-inner">
+                    <%
+                        if (Session["email"] != null)
+                        {
+                            %>
+                    <div class="user">
+                        <div class="user__info" data-toggle="dropdown">
+                            <img class="user__img" src="img/guestmd.png" alt="">
+                            <div>
+                                <div class="user__name"><%=name %></div>
+                                <div class="user__email"><%=email %></div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Logout.aspx">Logout</a>
+                        </div>
+                    </div>
+                    <%}
+                        else
+                        {
+                            %>
                     <div class="user">
                         <div class="user__info" data-toggle="dropdown">
                             <img class="user__img" src="img/guestmd.png" alt="">
                             <div>
                                 <div class="user__name">Guest</div>
-                                <%--<div class="user__email">amammustofa@gmail.com</div>--%>
                             </div>
                         </div>
 
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="Login_Register.aspx">Login</a>
-                            <%--<a class="dropdown-item" href="#">Logout</a>--%>
                         </div>
                     </div>
-
+                    <%} %>
                     <ul class="navigation">
-                        <li class="navigation__active"><a href="index-2.html"><i class="zmdi zmdi-home"></i> Home</a></li>
+                        <li class="navigation__active"><a href="User_Home.aspx"><i class="zmdi zmdi-home"></i> Home</a></li>
                         <li class="navigation mar-top-20">Tags</li>
 
-                        <li class="@@labelactive"><a href="#"><i class="zmdi zmdi-label-alt"></i> Label 1</a></li>
+<%--                        <li class="@@labelactive"><a href="#"><i class="zmdi zmdi-label-alt"></i> Label 1</a></li>
                             
-                        <li class="@@labelactive"><a href="#"><i class="zmdi zmdi-label-alt"></i> Label 2</a></li>
+                        <li class="@@labelactive"><a href="#"><i class="zmdi zmdi-label-alt"></i> Label 2</a></li>--%>
 
 
                         <li class="navigation mar-top-60">Information</li>
-                        <li class="@@aboutusactive"><a href="#"><i class="zmdi zmdi-info-outline"></i> About Us</a></li>
-                        <li class="@@feedbackactive"><a href="#"><i class="zmdi zmdi-help-outline"></i> Feedback</a></li>
+                        <li class="@@videoactive"><a href="App_Video_Learn.aspx"><i class="zmdi zmdi-collection-video"></i> Education Videos</a></li>
+                        <li class="@@aboutusactive"><a href="Default_About_Us.aspx"><i class="zmdi zmdi-info-outline"></i> About Us</a></li>
+                        <li class="@@feedbackactive"><a href="Default_Feedback.aspx"><i class="zmdi zmdi-help-outline"></i> Feedback</a></li>
+
                         <li class="navigation__sub @@applicationactive">
-                            <a href="#"><i class="zmdi zmdi-case-play"></i> Application</a>
+                            <a href="#"><i class="zmdi zmdi-case-play"></i> Try Encryption</a>
 
                             <ul>
-                                <li class="@@calendaractive"><a href="#"><i class="zmdi zmdi-calendar"></i>  Calendar</a></li>
-                                <li class="@@encryptionactive"><a href="#"><i class="zmdi zmdi-lock"></i>  Encryption</a></li>
+                                <li class="@@rsaactive"><a href="App_RSA_Encryption.aspx"><i class="zmdi zmdi-lock"></i>  RSA Encryption</a></li>
+                                <li class="@@desactive"><a href="App_DES_Encryption.aspx"><i class="zmdi zmdi-lock"></i>  DES Encryption</a></li>
+                                <li class="@@aesactive"><a href="App_AES_Encryption.aspx"><i class="zmdi zmdi-lock"></i>  AES Encryption</a></li>
                             </ul>
                         </li>
                         
@@ -140,13 +162,13 @@
                     <p>© Mustofa Ghaleb Amami. FYP APU.</p>
 
                     <ul class="nav footer__nav">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="User_Home.aspx">Home</a>
 
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="Default_About_Us.aspx">About Us</a>
 
-                        <a class="nav-link" href="#">Feedback</a>
+                        <a class="nav-link" href="Default_Feedback.aspx">Feedback</a>
 
-                        <a class="nav-link" href="#">News</a>
+                        <a class="nav-link" href="App_Video_Learn.aspx">Videos</a>
                     </ul>
                 </footer>
             </section>

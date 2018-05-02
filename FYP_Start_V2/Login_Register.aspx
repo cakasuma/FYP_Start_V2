@@ -40,7 +40,7 @@
                 }
 
                 if (getUrlVars()["forpasssuccess"] != null) {
-                    swal("Success!", "Please check your email to get the password", "error");
+                    swal("Success!", "Please check your email to reset the password", "success");
                 }
 
                 if (getUrlVars()["forpassfailed"] != null) {
@@ -80,7 +80,7 @@
         </script>
     </head>
 
-    <body data-ma-theme="green">
+    <body data-ma-theme="cyan">
         <div class="login">
 
             <!-- Login -->
@@ -176,7 +176,7 @@
 
                            
                         </label>
-                         <button class="btn btn--icon" data-toggle="modal" data-target="#modal-small" style="padding:0px"> <i class="zmdi zmdi-info"></i></button>
+                         <button type="button" class="btn btn--icon" data-toggle="modal" data-target="#modal-small" style="padding:0px"> <i class="zmdi zmdi-info"></i></button>
                     </div>
                     <button type="submit" class="btn btn--icon login__block__btn"><i class="zmdi zmdi-plus"></i></button>
                 </div>

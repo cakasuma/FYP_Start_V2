@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Home.aspx.cs" Inherits="FYP_Start_V2.Home" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="User_Home.aspx.cs" Inherits="FYP_Start_V2.User_Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 

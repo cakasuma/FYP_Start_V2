@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace FYP_Start_V2
 {
-    public partial class Home : System.Web.UI.Page
+    public partial class User_Home : System.Web.UI.Page
     {
         
         protected void Page_Load(object sender, EventArgs e)

@@ -84,7 +84,7 @@
                         </div>
                     </li>
                     <li >
-                            <%if (Session["email"] != null)
+                            <%if (Session["email"] == null)
     {
                             %>
                         <a href="Login_Register.aspx">Login OR Register</a>

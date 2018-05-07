@@ -94,7 +94,7 @@ namespace FYP_Start_V2
                         }
                         else if (currentUser.Equals("Admin"))
                         {
-                            Response.Redirect("User_Home.aspx");
+                            Response.Redirect("Admin_Home.aspx");
                         }
                         else
                         {

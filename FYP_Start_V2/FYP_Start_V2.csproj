@@ -65,6 +65,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Admin_Manage_Users.aspx" />
     <Content Include="Default_About_Us.aspx" />
     <Content Include="Admin_Add_Video.aspx" />
     <Content Include="Admin_Decryption_Stat.aspx" />
@@ -325,6 +326,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin_Manage_Users.aspx.cs">
+      <DependentUpon>Admin_Manage_Users.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Manage_Users.aspx.designer.cs">
+      <DependentUpon>Admin_Manage_Users.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cryptography.cs" />
     <Compile Include="Default_About_Us.aspx.cs">
       <DependentUpon>Default_About_Us.aspx</DependentUpon>

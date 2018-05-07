@@ -10,6 +10,6 @@
 namespace FYP_Start_V2 {
     
     
-    public partial class Admin_Home {
+    public partial class Admin_Manage_Users {
     }
 }

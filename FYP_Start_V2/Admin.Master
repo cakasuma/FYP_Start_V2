@@ -1,19 +1,201 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="FYP_Start_V2.Site1" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.Master.cs" Inherits="FYP_Start_V2.Admin" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
     <title></title>
+            <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Vendor styles -->
+                <link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+        <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
+        <link rel="stylesheet" href="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+        <link rel="stylesheet" href="vendors/bower_components/select2/dist/css/select2.min.css">
+        <link rel="stylesheet" href="vendors/bower_components/dropzone/dist/dropzone.css">
+        <link rel="stylesheet" href="vendors/bower_components/flatpickr/dist/flatpickr.min.css" />
+        <link rel="stylesheet" href="vendors/bower_components/nouislider/distribute/nouislider.min.css">
+        <link rel="stylesheet" href="vendors/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css">
+        <link rel="stylesheet" href="vendors/bower_components/trumbowyg/dist/ui/trumbowyg.min.css">
+
+        <!-- App styles -->
+        <link rel="stylesheet" href="css/app.min.css">
+
+        <!-- Demo only -->
+        <link rel="stylesheet" href="demo/css/demo.css">
+    <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="vendors/bower_components/dropzone/dist/min/dropzone.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+<body data-ma-theme="teal">
+    <main class="main">
+            <div class="page-loader">
+                <div class="page-loader__spinner">
+                    <svg viewBox="25 25 50 50">
+                        <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
+                    </svg>
+                </div>
+            </div>
+        <header class="header hdr">
+                <div class="navigation-trigger hidden-xl-up" data-ma-action="aside-open" data-ma-target=".sidebar">
+                    <div class="navigation-trigger__inner">
+                        <i class="navigation-trigger__line"></i>
+                        <i class="navigation-trigger__line"></i>
+                        <i class="navigation-trigger__line"></i>
+                    </div>
+                </div>
+                <div class="header__logo hidden-sm-down">
+                    <h1><a href="Admin_Home.aspx">AFMOS System</a></h1>
+                </div>
+                <form class="search">
+                    <div class="search__inner">
+                        <input type="text" class="search__text" placeholder="Search for files, documents...">
+                        <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
+                    </div>
+                </form>
+                <ul class="top-nav">
+                    <li class="hidden-xl-up"><a href="#" data-ma-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
+                    <li class="dropdown hidden-xs-down">
+                        <a href="Search.aspx" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="dropdown-item theme-switch">
+                                Theme Switch
+
+                                <div class="btn-group btn-group--colors mt-2" data-toggle="buttons">
+                                    <label class="btn bg-green"><input type="radio" value="green" autocomplete="off" checked></label>
+                                    <label class="btn bg-blue"><input type="radio" value="blue" autocomplete="off"></label>
+                                    <label class="btn bg-red"><input type="radio" value="red" autocomplete="off"></label>
+                                    <label class="btn bg-orange"><input type="radio" value="orange" autocomplete="off"></label>
+                                    <label class="btn bg-teal"><input type="radio" value="teal" autocomplete="off"></label>
+
+                                    <br>
+
+                                    <label class="btn bg-cyan active"><input type="radio" value="cyan" autocomplete="off"></label>
+                                    <label class="btn bg-blue-grey"><input type="radio" value="blue-grey" autocomplete="off"></label>
+                                    <label class="btn bg-purple"><input type="radio" value="purple" autocomplete="off"></label>
+                                    <label class="btn bg-indigo"><input type="radio" value="indigo" autocomplete="off"></label>
+                                    <label class="btn bg-lime"><input type="radio" value="lime" autocomplete="off"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li >
+                            <%if (Session["email"] != null)
+    {
+                            %>
+                        <a href="Login_Register.aspx">Login OR Register</a>
+                        <%}
+    else
+    { %>
+                        <a href="Logout.aspx">Logout</a>
+                        <%} %>
+                    </li>
+                </ul>
+        </header>
+        <aside class="sidebar">
+                <div class="scrollbar-inner">
+                    <%
+                        if (Session["email"] != null)
+                        {
+                            %>
+                    <div class="user">
+                        <div class="user__info" data-toggle="dropdown">
+                            <img class="user__img" src="img/guestmd.png" alt="">
+                            <div>
+                                <div class="user__name"><%=name %></div>
+                                <div class="user__email"><%=email %></div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Logout.aspx">Logout</a>
+                        </div>
+                    </div>
+                    <%}
+                        else
+                        {
+                            %>
+                    <div class="user">
+                        <div class="user__info" data-toggle="dropdown">
+                            <img class="user__img" src="img/guestmd.png" alt="">
+                            <div>
+                                <div class="user__name">Guest</div>
+                            </div>
+                        </div>
+
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="Login_Register.aspx">Login</a>
+                        </div>
+                    </div>
+                    <%} %>
+                    <ul class="navigation">
+                        <li class="navigation__active"><a href="Admin_Home.aspx"><i class="zmdi zmdi-home"></i> Home</a></li>
+                        <li class="navigation mar-top-20">Admin Options</li>
+                        <li class="@@manageusersactive"><a href="Admin_Manage_Users.aspx"><i class="zmdi zmdi-view-week"></i> Manage Users</a></li> 
+                        <li class="navigation__sub @@applicationactive">
+                            <a href="#"><i class="zmdi zmdi-case-play"></i> Manage Videos</a>
+
+                            <ul>
+                                <li class="@@addactive"><a href="Admin_Add_Video.aspx"><i class="zmdi zmdi-lock"></i>  Add Videos</a></li>
+                                <li class="@@viewactive"><a href="Admin_Delete_Video.aspx"><i class="zmdi zmdi-lock"></i>  View Videos Info</a></li>
+                            </ul>
+                        </li>
+                        <li class="@@manageusersactive"><a href="Admin_Encryption_Stat.aspx"><i class="zmdi zmdi-view-week"></i> View Encryption Stats</a></li> 
+
+                        <li class="navigation mar-top-60">Information</li>
+                        <li class="@@videoactive"><a href="App_Video_Learn.aspx"><i class="zmdi zmdi-collection-video"></i> Education Videos</a></li>
+                        <li class="@@aboutusactive"><a href="Default_About_Us.aspx"><i class="zmdi zmdi-info-outline"></i> About Us</a></li>
+                        <li class="@@feedbackactive"><a href="Default_Feedback.aspx"><i class="zmdi zmdi-help-outline"></i> Feedback</a></li>
+
+
+
+                    </ul>
+                </div>
+            </aside>
+            <section class="content">
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
-    </form>
+              <footer class="footer hidden-xs-down">
+                    <p>© Mustofa Ghaleb Amami. FYP APU.</p>
+
+                    <ul class="nav footer__nav">
+                        <a class="nav-link" href="User_Home.aspx">Home</a>
+
+                        <a class="nav-link" href="Default_About_Us.aspx">About Us</a>
+
+                        <a class="nav-link" href="Default_Feedback.aspx">Feedback</a>
+
+                        <a class="nav-link" href="App_Video_Learn.aspx">Videos</a>
+                    </ul>
+                </footer>
+            </section>
+
+    </main>
+
+
+
+        <!-- App functions and actions -->
+        
+        <script src="vendors/bower_components/tether/dist/js/tether.min.js"></script>
+        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+        <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
+        <script src="vendors/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+        <script src="vendors/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+
+        <script src="vendors/bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+        <script src="vendors/bower_components/select2/dist/js/select2.full.min.js"></script>
+        
+        <script src="vendors/bower_components/moment/min/moment.min.js"></script>
+        <script src="vendors/bower_components/flatpickr/dist/flatpickr.min.js"></script>
+        <script src="vendors/bower_components/nouislider/distribute/nouislider.min.js"></script>
+        <script src="vendors/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+        <script src="vendors/bower_components/trumbowyg/dist/trumbowyg.min.js"></script>
+
+        <!-- App functions and actions -->
+        <script src="js/app.min.js"></script>
 </body>
 </html>

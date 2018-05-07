@@ -84,7 +84,16 @@
                         </div>
                     </li>
                     <li >
+                        <%
+    if (Session["email"] != null)
+    {
+                            %>
                         <a href="Login_Register.aspx">Login OR Register</a>
+                        <%}
+    else
+    { %>
+                        <a href="Logout.aspx">Logout</a>
+                        <%} %>
                     </li>
                 </ul>
         </header>

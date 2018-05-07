@@ -13,7 +13,10 @@ namespace FYP_Start_V2
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if(Session["Email"] == null)
+            {
+                Response.Redirect("Login_Register.aspx");
+            }
             if (Request != null)
             {
                 foreach (string s in Request.Files)

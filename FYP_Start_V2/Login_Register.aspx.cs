@@ -82,11 +82,10 @@ namespace FYP_Start_V2
             {
                 String Email = Request.Form["emaillog"];
                 string Password = Request.Form["passlog"];
-                bool[] log_in = new Connection().Login(Email, Password);
-                if (log_in[0] == true)
+                bool log_in = new Connection().Login(Email, Password);
+                if (log_in == true)
                 {
-                    if(log_in[1] == true)
-                    {
+                    
                         String currentUser = Session["UserType"].ToString();
                         if (currentUser.Equals("Customer"))
                         {
@@ -100,11 +99,8 @@ namespace FYP_Start_V2
                         {
                             Response.Redirect("Login_Register.aspx?nouser=true");
                         }
-                    }
-                    else
-                    {
-                        Response.Redirect("Login_Register.aspx?accnotverified=true");
-                    }
+                    
+                    
 
                 }
                 else

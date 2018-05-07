@@ -35,9 +35,6 @@
                     swal("Oops", "Login Failed", "error");
                 }
 
-                if (getUrlVars()["accnotverified"] != null) {
-                    swal("Your account have not verified", "Please verified through your email", "error");
-                }
 
                 if (getUrlVars()["forpasssuccess"] != null) {
                     swal("Success!", "Please check your email to reset the password", "success");

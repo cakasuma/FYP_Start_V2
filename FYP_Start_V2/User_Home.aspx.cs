@@ -17,6 +17,20 @@ namespace FYP_Start_V2
             {
                 Response.Redirect("Login_Register.aspx");
             }
+            if(Request.QueryString["checkverification"] != null)
+            {
+                string verified = Connection.verification(Session["Email"].ToString());
+                System.Diagnostics.Debug.WriteLine("------------------------------------------------------------------" + verified);
+                if (verified == "true")
+                {
+                    Response.Redirect("User_Home.aspx?verification=true");
+                }
+                else
+                {
+                    Response.Redirect("User_Home.aspx?verificationfalse=true");
+                }
+                
+            }
             if (Request != null)
             {
                 foreach (string s in Request.Files)

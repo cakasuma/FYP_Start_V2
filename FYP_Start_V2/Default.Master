@@ -26,11 +26,30 @@
         <link rel="stylesheet" href="demo/css/demo.css">
     <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
     <script src="vendors/bower_components/dropzone/dist/min/dropzone.min.js"></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="js/sweetalert.js"></script>
+    <script type="text/javascript">
+    //Called this method on any button click  event for Testing
+        function MyFunction(Param1, Param2) { 
+            var Email = '@Request.RequestContext.HttpContext.Session["Email"]';
+            var verified = PageMethods.MyMethod(Email, onSucceed, onError); 
+            swal(verified);
+    }  
+     //CallBack method when the page call success
+    function onSucceed(results, currentContext, methodName) {  
+        //Do here success event     
+        
+    } 
+    //CallBack method when the page call fails due to internal, server error 
+    function onError(results, currentContext, methodName) {
+       //Do here failure event 
+    } 
+</script>  
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body data-ma-theme="teal">
+
+
     <main class="main">
             <div class="page-loader">
                 <div class="page-loader__spinner">
@@ -50,7 +69,7 @@
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="User_Home.aspx">AFMOS System</a></h1>
                 </div>
-                <form class="search">
+                <form class="search" enctype="multipart/form-data">
                     <div class="search__inner">
                         <input type="text" class="search__text" placeholder="Search for files, documents...">
                         <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
@@ -83,18 +102,26 @@
                             </div>
                         </div>
                     </li>
-                    <li >
+                    
                         <%
     if (Session["email"] != null)
     {
                             %>
-                        <a href="Login_Register.aspx">Login OR Register</a>
+                        <li>
+                        <a href="Logout.aspx">Logout</a>
+                        </li>
+                        <li>
+                        <a href="User_Home.aspx?checkverification=true">Check Verification</a>
+                        </li>
                         <%}
     else
     { %>
-                        <a href="Logout.aspx">Logout</a>
+                        <li>
+                        <a href="Login_Register.aspx">Login OR Register</a>
+                        </li>
                         <%} %>
-                    </li>
+                    
+                    
                 </ul>
         </header>
         <aside class="sidebar">

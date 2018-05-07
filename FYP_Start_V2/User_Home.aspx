@@ -1,7 +1,26 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="User_Home.aspx.cs" Inherits="FYP_Start_V2.User_Home" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-
+    <script type="text/javascript">
+        function getUrlVars() {
+            var vars = [], hash;
+            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+            for (var i = 0; i < hashes.length; i++) {
+                hash = hashes[i].split('=');
+                vars.push(hash[0]);
+                vars[hash[0]] = hash[1];
+            }
+            return vars;
+        }
+        $(document).ready(function () {
+            if (getUrlVars()["verification"] != null) {
+                swal("Yes!", "Your account has been verified", "success");
+            }
+            if (getUrlVars()["verificationfalse"] != null) {
+                swal("No!", "Please Verify your account", "warning");
+            }
+        });
+    </script>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -14,7 +33,7 @@
 
                         <div class="card-block">
                             
-                            <form class="dropzone" id="mDropzone" runat="server"></form>
+                            <form class="dropzone" id="mDropzone" runat="server" enctype="multipart/form-data"></form>
                         </div>
                         <div class="card-header">
                             <h2 class="card-title text-center">All your files are here</h2>

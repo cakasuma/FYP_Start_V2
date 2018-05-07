@@ -81,24 +81,23 @@ namespace FYP_Start_V2
 
         }
 
-        public bool[] Login(String email, string password)
+        public bool Login(String email, string password)
         {
             string hashpassword = new Cryptography().HashPass(password);
             System.Diagnostics.Debug.WriteLine(hashpassword);
-            String query = "SELECT * FROM T_User inner join UserActivation on T_User.User_Id = UserActivation.UserId where Email = '"+email+"' and Password = '"+hashpassword+"';";
+            String query = "SELECT Email, User_Type FROM T_User where Email = '"+email+"' and Password = '"+hashpassword+"';";
             SqlConnection conn = getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
             SqlDataReader sdr = cm.ExecuteReader();
-            bool[] flag = { false, false };
+            bool flag = false;
             if (sdr.HasRows)
             {
-                flag[0] = true;
+                flag = true;
                 System.Web.HttpContext.Current.Session["Email"] = email;
 
                 while (sdr.Read())
                 {
-                    flag[1] = Convert.ToBoolean(sdr["verified"].ToString());
                     System.Web.HttpContext.Current.Session["UserType"] = sdr["User_Type"].ToString();
                 }
 
@@ -107,7 +106,35 @@ namespace FYP_Start_V2
             return flag;
         }
 
-        public static string getUserName(String session)
+        public static string verification(string session)
+        {
+            string verified = "";
+
+            String sqlQ = "SELECT a.verified FROM UserActivation a INNER JOIN T_User u ON a.UserId = u.User_Id Where u.Email='" + session + "'";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    verified = sdr["verified"].ToString();
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return verified;
+        }
+
+            public static string getUserName(String session)
         {
             string UserName = "";
 

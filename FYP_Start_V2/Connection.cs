@@ -162,6 +162,21 @@ namespace FYP_Start_V2
             return UserName;
         }
 
+        public static string getUserID(string userEmail)
+        {
+            string userID = "";
+            String query = "Select User_Id from T_User where Email= '" + userEmail + "'";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                userID = sdr["User_Id"].ToString();
+            }
+
+            return userID;
+        }
 
     }
 }

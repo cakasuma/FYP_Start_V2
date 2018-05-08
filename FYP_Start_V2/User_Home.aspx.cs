@@ -33,6 +33,9 @@ namespace FYP_Start_V2
             }
             if (Request != null)
             {
+                string email = Session["Email"].ToString();
+                string id = Connection.getUserID(email);
+                int user_id = Convert.ToInt32(id);
                 foreach (string s in Request.Files)
                 {
                     HttpPostedFile file = Request.Files[s];
@@ -46,9 +49,11 @@ namespace FYP_Start_V2
                         bool isExists = System.IO.Directory.Exists(pathString);
                         if (!isExists) System.IO.Directory.CreateDirectory(pathString);
                         var uploadpath = string.Format("{0}\\{1}", pathString, file.FileName);
+                        string[] type = file.FileName.Split('.');
                         file.SaveAs(uploadpath);
+                        Connection.executeQuery("Insert into T_Files (File_Name, File_Location, File_Type, User_Id) values ('" + file.FileName + "','" + uploadpath.ToString() + "','" + type[1] + "'," + user_id + ")");
                     }
-
+                    
                 }
             }
 

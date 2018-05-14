@@ -42,13 +42,13 @@
                         <div style="margin: auto;margin-bottom:30px">
                         <div class="row">
                             
-                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/documents.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">5</span></a>
-                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/compressed.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">15</span></a>
-                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/application.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">1</span></a>
-                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/images.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">9</span></a>
-                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/music.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">20</span></a>
-                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/video.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">3</span></a>
-                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/misc.png" alt=""><span class="align-bottom" style="padding-bottom:7px;">30+</span></a>
+                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/documents.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=doc %></span></a>
+                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/compressed.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=com %></span></a>
+                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/application.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=app %></span></a>
+                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/images.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=img %></span></a>
+                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/music.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=mus %></span></a>
+                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/video.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=vid %></span></a>
+                                <a href="#" class="card-block" style="padding-right:20px;padding:1.1rem"><img style="width:50px;margin-bottom:10px" src="img/misc.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=msc %></span></a>
                         </div>
 
                     </div>

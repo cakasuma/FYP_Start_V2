@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Web;
@@ -10,12 +11,68 @@ namespace FYP_Start_V2
 {
     public partial class User_Home : System.Web.UI.Page
     {
-        
+        public int doc;
+        public int com;
+        public int app;
+        public int img;
+        public int mus;
+        public int vid;
+        public int msc;
+        public SqlDataReader sdr;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(Session["Email"] == null)
             {
                 Response.Redirect("Login_Register.aspx");
+            }
+            else
+            {
+                var filetype = new File_Type();
+                String[] doc_file = filetype.Document;
+                String[] com_file = filetype.Compressed;
+                String[] app_file = filetype.Application;
+                String[] img_file = filetype.Image;
+                String[] mus_file = filetype.Music;
+                String[] vid_file = filetype.Video;
+                string email = Session["Email"].ToString();
+                string id = Connection.getUserID(email);
+                String query = "SELECT File_Type FROM T_Files where User_Id="+id+"";
+                SqlConnection conn = Connection.getConnection();
+                conn.Open();
+                SqlCommand cm = new SqlCommand(query, conn);
+                sdr = cm.ExecuteReader();
+                while (sdr.Read())
+                {
+                    if (doc_file.Contains(sdr["File_Type"]))
+                    {
+                        doc++;
+                    }
+                    else if (com_file.Contains(sdr["File_Type"]))
+                    {
+                        com++;
+                    }
+                    else if (app_file.Contains(sdr["File_Type"]))
+                    {
+                        app++;
+                    }
+                    else if (img_file.Contains(sdr["File_Type"]))
+                    {
+                        img++;
+                    }
+                    else if (mus_file.Contains(sdr["File_Type"]))
+                    {
+                        mus++;
+                    }
+                    else if (vid_file.Contains(sdr["File_Type"]))
+                    {
+                        vid++;
+                    }
+                    else
+                    {
+                        msc++;
+                    }
+                }
             }
             if(Request.QueryString["checkverification"] != null)
             {

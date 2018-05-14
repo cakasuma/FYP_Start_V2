@@ -19,13 +19,15 @@
                                 <th>Email</th>
                                 <th>Contact</th>
                                 <th>Verified</th>
+                                <th>Delete</th>
                             </tr>
                             </thead>
                             <tbody>
                         <%
+                            int ctr = 1;
                             while (sdr.Read())
                             {
-                                int ctr = 1;
+                                
                             %>
                             <tr>
                                 <th scope="row"><%=ctr %></th>
@@ -33,6 +35,7 @@
                                 <td><%=sdr["Email"].ToString() %></td>
                                 <td><%=sdr["Contact"].ToString() %></td>
                                 <td><%=sdr["verified"].ToString() %></td>
+                                <td><a href="Admin_Manage_Users.aspx?deleteuserid=<%=sdr["User_Id"].ToString() %>" class="btn--float">Delete</a></td>
                             </tr>
                         <%
                                 ctr++;

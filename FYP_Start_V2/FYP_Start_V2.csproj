@@ -419,6 +419,7 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="File_Type.cs" />
     <Compile Include="Reset_Password.aspx.cs">
       <DependentUpon>Reset_Password.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

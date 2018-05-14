@@ -15,11 +15,17 @@ namespace FYP_Start_V2
         {
             if(Session["Email"] != null)
             { 
-            String query = "SELECT u.Name, u.Email, u.Contact, a.verified FROM T_User u INNER JOIN UserActivation a ON u.User_Id = a.UserId";
+            String query = "SELECT u.User_Id, u.Name, u.Email, u.Contact, a.verified FROM T_User u INNER JOIN UserActivation a ON u.User_Id = a.UserId";
             SqlConnection conn = Connection.getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(query, conn);
             sdr = cm.ExecuteReader();
+            }
+            if(Request.QueryString["deleteuserid"] != null)
+            {
+                string user_id = Request.QueryString["deleteuserid"].ToString();
+                string query = "DELETE FROM T_User INNER JOIN UserActivation WHERE T_User.User_Id = UserActivation.UserId AND T_User.User_Id="+user_id;
+                Connection.executeQuery(query);
             }
 
         }

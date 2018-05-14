@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        
+    </head>
+    <body>
+        <div id="main">
+            <select id="markets"></select>
+            <select id="submarkets"></select>
+            <select id="symbols"></select>
+        </div>
+        
+        <script type="text/javascript">
+        
+var ws = new WebSocket('wss://ws.binaryws.com/websockets/v3?app_id=1089');
+var markets = document.getElementById('markets');
+var submarkets = document.getElementById('submarkets');
+var symbols = document.getElementById('symbols');
+
+//open socket
+ws.onopen = function(evt) {
+    ws.send(JSON.stringify({active_symbols:'brief'}));
+};
+
+//data get
+ws.onmessage = function(msg) {
+    //json data
+    var data = JSON.parse(msg.data);
+    console.log(data);
+    //load the first time
+    load_data('markets');
+    load_data('submarkets', data.active_symbols[0].market_display_name);
+    load_data('symbols', data.active_symbols[0].submarket_display_name);
+    
+    //this function will load the data based on dropdown name/id and dependency
+    function load_data(name, market_name){
+        var datas = []; //this is to collect the filtered data
+        //loop through the active_symbols data
+        for(var i=0;i<data.active_symbols.length;i++){
+            //get data attributes
+            var mn = data.active_symbols[i].market_display_name;
+            var sbmn = data.active_symbols[i].submarket_display_name;
+            var symn = data.active_symbols[i].symbol;
+            
+            //check dropdown names need to load
+            if(name=='markets'){
+                //check whether there is duplicates in datas array
+                if(datas.indexOf(mn) === -1){
+                    datas.push(mn);
+                    //appending element option
+                    var option = document.createElement('option');
+                    option.innerHTML = mn;//text
+                    option.value = mn;//attribute
+                    markets.appendChild(option);
+                }
+                
+            }
+            
+            else if(name=='submarkets'){
+                if(market_name==mn){
+                    if(datas.indexOf(sbmn) === -1){
+                        datas.push(sbmn);
+                        var option = document.createElement('option');
+                        option.innerHTML = sbmn;//text
+                        option.value = sbmn;//attribute
+                        submarkets.appendChild(option);
+                    }
+                }
+            }
+            
+            else if(name=='symbols'){
+                if(market_name==sbmn){
+                    if(datas.indexOf(symn) === -1){
+                        datas.push(symn);
+                        var option = document.createElement('option');
+                        option.innerHTML = symn;//text
+                        option.value = symn;//attribute
+                        symbols.appendChild(option);
+                    }
+                }
+            }
+        }
+    
+    }
+
+    
+    //onchange method for market
+    markets.onchange = function(){
+        var selected_market = markets.value;
+        remove_options(submarkets);
+        load_data('submarkets',selected_market);
+        submarkets.onchange.call(); //normal onchange wont change programmatically, so i have to call the onchange function here
+    };
+    
+    //onchange method for submarket
+    submarkets.onchange = function(){
+        var selected_submarket = submarkets.value;
+        remove_options(symbols);
+        load_data('symbols',selected_submarket);
+    }
+    
+    //everytime, calling load data, it wont remove the previous one, then this function need to be called when there is onchange
+    function remove_options(subname){
+        var leng = subname.options.length;
+        for(var i=leng-1;i>=0;i--){
+            subname.remove(i);
+        }
+    }
+
+};
+
+
+        </script>
+    </body>
+</html>

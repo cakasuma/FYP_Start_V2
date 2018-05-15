@@ -11,8 +11,9 @@
                         <small class="card-subtitle">display details information about registered users</small>
                     </div>
                      <div class="card-block">
-                         <table class="table mb-3">
-                            <thead  class="thead-inverse">
+                         <div class="table-responsive">
+                         <table id="data-table" class="table table-bordered">
+                            <thead class="thead-inverse">
                             <tr>
                                 <th>#</th>
                                 <th>Name</th>
@@ -22,6 +23,16 @@
                                 <th>Delete</th>
                             </tr>
                             </thead>
+                             <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Contact</th>
+                                <th>Verified</th>
+                                <th>Delete</th>
+                            </tr>
+                            </tfoot>
                             <tbody>
                         <%
                             int ctr = 1;
@@ -42,6 +53,12 @@
                             } %>
                             </tbody>
                         </table>
+                         </div>
                      </div>
                   </div>
+     <script src="vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="vendors/bower_components/jszip/dist/jszip.min.js"></script>
+        <script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
 </asp:Content>

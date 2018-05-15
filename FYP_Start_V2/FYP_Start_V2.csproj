@@ -106,6 +106,7 @@
     <Content Include="App_RSA_Encryption.aspx" />
     <Content Include="Reset_Password.aspx" />
     <Content Include="Search.aspx" />
+    <Content Include="User_Files.aspx" />
     <Content Include="User_Profile.aspx" />
     <Content Include="vendors\bower_components\lightgallery\dist\fonts\lgd41d.eot" />
     <Content Include="vendors\bower_components\lightgallery\dist\fonts\lgd641.eot" />
@@ -426,6 +427,13 @@
     </Compile>
     <Compile Include="Reset_Password.aspx.designer.cs">
       <DependentUpon>Reset_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Files.aspx.cs">
+      <DependentUpon>User_Files.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Files.aspx.designer.cs">
+      <DependentUpon>User_Files.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Home.aspx.cs">
       <DependentUpon>User_Home.aspx</DependentUpon>

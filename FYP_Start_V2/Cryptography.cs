@@ -14,7 +14,7 @@ namespace FYP_Start_V2
             if (String.IsNullOrEmpty(password))
                 return String.Empty;
 
-            using (var sha = new System.Security.Cryptography.SHA256Managed())
+            using (var sha = new SHA256Managed())
             {
                 byte[] textData = System.Text.Encoding.UTF8.GetBytes(password);
                 byte[] hash = sha.ComputeHash(textData);

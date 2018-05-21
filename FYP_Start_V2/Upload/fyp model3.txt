@@ -1,2 +1,0 @@
-users can choose encrypted folder and non encrypted folder
-they have control to encrypt individual files

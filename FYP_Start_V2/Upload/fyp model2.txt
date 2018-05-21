@@ -1,7 +1,0 @@
-guest: they only able to upload 1 file, and choose whether to encrypt or decrypt
-       they do not have any data
-
-customer: they can upload multiple file, automatically encrypted. 
-	  also if they only want to encrypt or decrypt and option to save into data or not.
-	  only when they click the data they can add label or delete the data or
-	  encrypt the data or decrypt th data or download the data

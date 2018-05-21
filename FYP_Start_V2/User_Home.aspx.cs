@@ -108,7 +108,14 @@ namespace FYP_Start_V2
                         var uploadpath = string.Format("{0}\\{1}", pathString, file.FileName);
                         string[] type = file.FileName.Split('.');
                         file.SaveAs(uploadpath);
-                        Connection.executeQuery("Insert into T_Files (File_Name, File_Location, File_Type, User_Id) values ('" + file.FileName + "','" + uploadpath.ToString() + "','" + type[1] + "'," + user_id + ")");
+                        try
+                        {
+                            Connection.executeQuery("Insert into T_Files (File_Name, File_Location, File_Type, User_Id) values ('" + file.FileName + "','" + uploadpath.ToString() + "','" + type[1] + "'," + user_id + ")");
+                        }
+                        catch(Exception ex)
+                        {
+                            Response.Write(@"<script language='javascript'>alert('The following errors have occurred: \n" + ex + " .');</script>");
+                        }
                     }
                     
                 }

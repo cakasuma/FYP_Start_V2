@@ -136,30 +136,37 @@ namespace FYP_Start_V2
         }
         private void SendActivationEmail(int userId, string email, string name)
         {
-            string verified = "false";
-            string activationCode = Guid.NewGuid().ToString();
-            Connection.executeQuery("Insert into UserActivation (UserId, ActivationCode,verified) values ('" + userId + "','" + activationCode + "', '" + verified + "')");
+            try
+            {
+                string verified = "false";
+                string activationCode = Guid.NewGuid().ToString();
+                Connection.executeQuery("Insert into UserActivation (UserId, ActivationCode,verified) values ('" + userId + "','" + activationCode + "', '" + verified + "')");
 
-            MailMessage mm = new MailMessage();
-            mm.From = new MailAddress("amammustofa@gmail.com");
-            mm.To.Add(email);
-            mm.Subject = "Account Activation";
-            string body = "Hello " + name + ",";
-            body += "<br /><br />Please click the following link to activate your account";
-            body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("Login_Register.aspx", "Login_Register.aspx?ActivationCode=" + activationCode) + "'>Click here to activate your account.</a>";
-            body += "<br /><br />Thanks";
-            mm.Body = body;
-            mm.IsBodyHtml = true;
-            SmtpClient smtp = new SmtpClient();
-            smtp.Host = "smtp.gmail.com";
-            smtp.EnableSsl = true;
-            NetworkCredential NetworkCred = new NetworkCredential();
-            NetworkCred.UserName = "amammustofa@gmail.com";
-            NetworkCred.Password = "cakaamam15951";
-            smtp.UseDefaultCredentials = true;
-            smtp.Credentials = NetworkCred;
-            smtp.Port = 587;
-            smtp.Send(mm);
+                MailMessage mm = new MailMessage();
+                mm.From = new MailAddress("amammustofa@gmail.com");
+                mm.To.Add(email);
+                mm.Subject = "Account Activation";
+                string body = "Hello " + name + ",";
+                body += "<br /><br />Please click the following link to activate your account";
+                body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("Login_Register.aspx", "Login_Register.aspx?ActivationCode=" + activationCode) + "'>Click here to activate your account.</a>";
+                body += "<br /><br />Thanks";
+                mm.Body = body;
+                mm.IsBodyHtml = true;
+                SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential();
+                NetworkCred.UserName = "amammustofa@gmail.com";
+                NetworkCred.Password = "cakaamam15951";
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
+                smtp.Send(mm);
+            }
+            catch(Exception ex)
+            {
+                Response.Write(ex);
+            }
         }
     }
 }

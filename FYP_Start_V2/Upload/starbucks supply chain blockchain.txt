@@ -1,0 +1,16 @@
+- starbucks supply chain management
+starbucks uses vertically integrated supply chain, means they involved in every step process 
+from coffee bean to cup of coffee with 300,000 worlwide bean growers
+The company even has its own Coffee and Farmer Equity (C.A.F.E) standards
+and Coffee Sourcing Guidelines (CSG)
+*process
+1. pick and package coffee beans
+2. truck drives to ocean liners ship to six storage sites in us and europe
+3. beans roasted here
+4. packaged and ship to 8 central and 40 regional distribution centers by storage facilities
+5. 70.000 weekly deliveries on time
+-- blockchain in supply chain
+digital certificates in blockchain technology can be used to manage the supply chain to
+1. monitor demand, inventory, capacity, and scheduling in real time and secured
+2. adjust its plans and operations as needed
+3. allow company to achieve high level of efficiency and agility, which are keys to organizational success

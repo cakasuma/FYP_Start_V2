@@ -1,0 +1,36 @@
+=Differentiation
+- integrating technology into various business processes
+-- launch mobile order & pay feature, there are two ways
+1. which tablet embedded in the table to order the menu without
+getting in line queue (sushi king), the order will be displayed on the monitor,
+when it is ready, it will display the order number ready
+so they can pickup their order(mc donald)
+* sushi king reduced manual labor 12% 2008
+* reduce paper based menu
+* decreasing human errors, order duplication or omission to avoid food waste or dissatisfaction prevent high cost incurred due to customer loss
+* menu is providing the search bar to customer and the menu is dynamic. This can improvecustomer purchasing experience and create innovative image to customer
+* ask for customer feedback (monitor customer satisfaction)
+* track the purchase history and give reccommendation in machine learning for reccommendation and best selling product
+
+2. mobile application, however, this approach failed, due to the first january issues
+where most of the customers waiting at the pickup counter so their name be called.
+with the fact in 2017 january, the marketshare decreased from $58.46 to 56.39, 3.54%
+!risks
+Lost the culture of starbucks to calling the name of customers
+
+
+=Growth
+starbucks can grow more their company by doing integration horizontal backward strategy in buying (in house)
+farmer group from export company such as indonesia with more than 12000 hectare
+*increase control
+company has control over supplier, makes their bargaining power high
+control the value chain efficiently
+even though expensive, it will create more non-liquid assets and long-term benefits
+*cost control
+cost can be controlled all along the distribution process
+*block competitors from gaining access to important markets or resources
+*increasing numbers of production inputs and distribution resources
+!risks
+- increase investment
+- leads to supplier competition can cause low efficiency resulting higher cost of product
+- long time to wait the result and to gain ROI

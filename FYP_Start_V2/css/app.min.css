@@ -13915,6 +13915,10 @@ span.flatpickr-weekday {
     margin-bottom: 60px;
 }
 
+div.contacts__info.mar-bot-10{
+    margin-bottom: 10px;
+}
+
 .imgs {
     display: flex;
     justify-content: space-around;
@@ -13929,3 +13933,4 @@ img-new{
 a.card-block:hover {
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
+

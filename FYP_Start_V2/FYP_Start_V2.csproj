@@ -45,6 +45,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AuthenticatedEncryption, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AuthenticatedEncryption.1.0.1\lib\net45\AuthenticatedEncryption.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=2.4.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
     </Reference>
@@ -111,12 +114,13 @@
     <Content Include="img\application.png" />
     <Content Include="img\compressed.png" />
     <Content Include="img\documents.png" />
-    <Content Include="img\Files\appFiles.png" />
-    <Content Include="img\Files\comFiles.png" />
-    <Content Include="img\Files\docFiles.png" />
-    <Content Include="img\Files\imgFiles.png" />
-    <Content Include="img\Files\miscFiles.png" />
-    <Content Include="img\Files\vidFiles.png" />
+    <Content Include="img\Files\application.png" />
+    <Content Include="img\Files\compressed.png" />
+    <Content Include="img\Files\document.png" />
+    <Content Include="img\Files\image.png" />
+    <Content Include="img\Files\miscellaneous.png" />
+    <Content Include="img\Files\music.png" />
+    <Content Include="img\Files\video.png" />
     <Content Include="img\images.png" />
     <Content Include="img\misc.png" />
     <Content Include="img\music.png" />
@@ -144,6 +148,7 @@
     <Content Include="App_RSA_Encryption.aspx" />
     <Content Include="Reset_Password.aspx" />
     <Content Include="Search.aspx" />
+    <Content Include="testEncryption.aspx" />
     <Content Include="User_Files.aspx" />
     <Content Include="User_Profile.aspx" />
     <Content Include="vendors\bower_components\lightgallery\dist\fonts\lgd41d.eot" />
@@ -466,6 +471,13 @@
     </Compile>
     <Compile Include="Reset_Password.aspx.designer.cs">
       <DependentUpon>Reset_Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="testEncryption.aspx.cs">
+      <DependentUpon>testEncryption.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="testEncryption.aspx.designer.cs">
+      <DependentUpon>testEncryption.aspx</DependentUpon>
     </Compile>
     <Compile Include="User_Files.aspx.cs">
       <DependentUpon>User_Files.aspx</DependentUpon>

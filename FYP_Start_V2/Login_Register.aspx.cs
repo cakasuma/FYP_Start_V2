@@ -62,14 +62,7 @@ namespace FYP_Start_V2
                     mm.Body = body;
                     mm.IsBodyHtml = true;
                     SmtpClient smtp = new SmtpClient();
-                    smtp.Host = "smtp.gmail.com";
-                    smtp.EnableSsl = true;
-                    NetworkCredential NetworkCred = new NetworkCredential();
-                    NetworkCred.UserName = "amammustofa@gmail.com";
-                    NetworkCred.Password = "cakaamam15951";
-                    smtp.UseDefaultCredentials = true;
-                    smtp.Credentials = NetworkCred;
-                    smtp.Port = 587;
+
                     smtp.Send(mm);
                     Response.Redirect("Login_Register.aspx?forpasssuccess=true");
                 }
@@ -153,14 +146,6 @@ namespace FYP_Start_V2
                 mm.Body = body;
                 mm.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
-                smtp.Host = "smtp.gmail.com";
-                smtp.EnableSsl = true;
-                NetworkCredential NetworkCred = new NetworkCredential();
-                NetworkCred.UserName = "amammustofa@gmail.com";
-                NetworkCred.Password = "cakaamam15951";
-                smtp.UseDefaultCredentials = true;
-                smtp.Credentials = NetworkCred;
-                smtp.Port = 587;
                 smtp.Send(mm);
             }
             catch(Exception ex)

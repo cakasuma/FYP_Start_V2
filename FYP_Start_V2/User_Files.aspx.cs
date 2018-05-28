@@ -40,7 +40,7 @@ namespace FYP_Start_V2
                     string filename = Request.QueryString["filename"];
                     string filelocation = Server.MapPath("~/Upload/" + filename);
                     string filedec = Server.MapPath("~/Upload/dec_" + filename);
-                    DecryptFile(filelocation, filedec);
+                    new Cryptography().DecryptFile(@"myKey123", filelocation, filedec);
                     Response.ContentType = "application/octet-stream";
                     Response.AppendHeader("Content-Disposition", "attachment;filename=" + filename);
                     Response.TransmitFile(Server.MapPath("~/Upload/dec_" + filename));
@@ -60,34 +60,6 @@ namespace FYP_Start_V2
         }
 
 
-        private void DecryptFile(string inputFile, string outputFile)
-        {
-
-            {
-                string password = @"myKey123"; // Your Key Here
-
-                UnicodeEncoding UE = new UnicodeEncoding();
-                byte[] key = UE.GetBytes(password);
-
-                FileStream fsCrypt = new FileStream(inputFile, FileMode.Open);
-
-                RijndaelManaged RMCrypto = new RijndaelManaged();
-
-                CryptoStream cs = new CryptoStream(fsCrypt,
-                    RMCrypto.CreateDecryptor(key, key),
-                    CryptoStreamMode.Read);
-
-                FileStream fsOut = new FileStream(outputFile, FileMode.Create);
-
-                int data;
-                while ((data = cs.ReadByte()) != -1)
-                    fsOut.WriteByte((byte)data);
-
-                fsOut.Close();
-                cs.Close();
-                fsCrypt.Close();
-
-            }
-        }
+        
     }
 }

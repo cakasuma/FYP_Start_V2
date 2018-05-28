@@ -118,7 +118,7 @@ namespace FYP_Start_V2
                         {
                             string file_cat = checkCategory(type[1]);
                             Connection.executeQuery("Insert into T_Files (File_Name, File_Location, File_Type, User_Id, File_Category, File_Status) values ('" + file.FileName + "','" + uploadpath.ToString() + "','" + type[1] + "'," + user_id + ",'"+file_cat+"','encrypted')");
-                            EncryptFile(uploadpath, uploadenc);
+                            new Cryptography().EncryptFile(@"myKey123", uploadpath, uploadenc);
                             File.Delete(uploadpath);
                             File.Copy(uploadenc, uploadpath);
                             File.Delete(uploadenc);
@@ -177,40 +177,7 @@ namespace FYP_Start_V2
             return category;
         }
 
-        private void EncryptFile(string inputFile, string outputFile)
-        {
-
-            try
-            {
-                string password = @"myKey123"; // Your Key Here
-                UnicodeEncoding UE = new UnicodeEncoding();
-                byte[] key = UE.GetBytes(password);
-
-                string cryptFile = outputFile;
-                FileStream fsCrypt = new FileStream(cryptFile, FileMode.Create);
-
-                RijndaelManaged RMCrypto = new RijndaelManaged();
-
-                CryptoStream cs = new CryptoStream(fsCrypt,
-                    RMCrypto.CreateEncryptor(key, key),
-                    CryptoStreamMode.Write);
-
-                FileStream fsIn = new FileStream(inputFile, FileMode.Open);
-
-                int data;
-                while ((data = fsIn.ReadByte()) != -1)
-                    cs.WriteByte((byte)data);
-
-
-                fsIn.Close();
-                cs.Close();
-                fsCrypt.Close();
-            }
-            catch
-            {
-                Response.Write("Encryption failed!");
-            }
-        }
+        
 
 
     }

@@ -170,11 +170,13 @@
                     <ul class="navigation">
                         <li class="navigation__active"><a href="User_Home.aspx"><i class="zmdi zmdi-home"></i> Home</a></li>
                         <li class="navigation mar-top-20">Tags</li>
-
-<%--                        <li class="@@labelactive"><a href="#"><i class="zmdi zmdi-label-alt"></i> Label 1</a></li>
-                            
-                        <li class="@@labelactive"><a href="#"><i class="zmdi zmdi-label-alt"></i> Label 2</a></li>--%>
-
+                        <%
+                            string[] tags = FYP_Start_V2.Connection.loadTags(userid);
+                            for (var i = 0; i < tags.Length; i++)
+                            {
+                            %>
+                       <li class="@@labelactive"><a href="User_Files.aspx?tags=<%=tags[i] %>"><i class="zmdi zmdi-label-alt"></i><%=tags[i] %></a></li>
+                        <%} %>
 
                         <li class="navigation mar-top-60">Information</li>
                         <li class="@@videoactive"><a href="App_Video_Learn.aspx"><i class="zmdi zmdi-collection-video"></i> Education Videos</a></li>

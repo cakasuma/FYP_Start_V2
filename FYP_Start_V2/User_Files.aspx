@@ -39,6 +39,15 @@
                     </div>
 
                     <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&download=true&filename=<%=sdr["File_Name"] %>" class="contacts__btn">Download</a>
+                    <div class="todo__labels">
+                        <%
+                            string[] filetagfiles = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString());
+                            for (var j = 0; j < filetagfiles.Length; j++)
+                            {
+                            %>
+                        <span class="badge badge-default"><%=filetagfiles[j] %></span>
+                        <%} %>
+                    </div>
                     <div class="dropdown actions__item">
                         <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
                         <div class="dropdown-menu dropdown-menu-right">

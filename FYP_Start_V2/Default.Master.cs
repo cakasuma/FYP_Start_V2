@@ -12,12 +12,14 @@ namespace FYP_Start_V2
     {
         public string name = "";
         public string email = "";
+        public string userid = "";
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Email"] != null)
             {
                 email = Session["email"].ToString();
                 name = Connection.getUserName(email);
+                userid = Connection.getUserID(email);
             }
         }
 

@@ -16,6 +16,10 @@ namespace FYP_Start_V2
         public SqlDataReader sdr;
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                ViewState["RefUrl"] = Request.UrlReferrer.ToString();
+            }
             if (Session["Email"] != null)
             {
                 string email = Session["Email"].ToString();
@@ -33,10 +37,18 @@ namespace FYP_Start_V2
                     }
 
                 }
+                if (Request.QueryString["tags"] != null)
+                {
+                    string tag = Request.QueryString["tags"].ToString();
+                    String query = "SELECT * FROM T_Files WHERE User_Id=" + user_id + " AND File_Tags LIKE'%" + tag + ",%' or File_Tags LIKE'%," + tag + ",%' or File_Tags LIKE'%," + tag + "%' ORDER BY File_DateCreated DESC";
+                    SqlConnection conn = Connection.getConnection();
+                    conn.Open();
+                    SqlCommand cm = new SqlCommand(query, conn);
+                    sdr = cm.ExecuteReader();
+                }
 
                 if (Request.QueryString["download"] != null)
                 {
-
                     string filename = Request.QueryString["filename"];
                     string filelocation = Server.MapPath("~/Upload/" + filename);
                     string filedec = Server.MapPath("~/Upload/dec_" + filename);
@@ -49,6 +61,9 @@ namespace FYP_Start_V2
                     {
                         File.Delete(filedec);
                     }
+                    object refUrl = ViewState["RefUrl"];
+                    if (refUrl != null)
+                        Response.Redirect((string)refUrl);
 
                 }
                 if (Request.QueryString["addtags"] != null)
@@ -67,6 +82,9 @@ namespace FYP_Start_V2
                     Connection.executeQuery(query);
                     string query2 = "UPDATE T_User SET User_Tags='" + realnewTagsyeah + "' WHERE User_Id='" + user_id + "'";
                     Connection.executeQuery(query2);
+                    object refUrl = ViewState["RefUrl"];
+                    if (refUrl != null)
+                        Response.Redirect((string)refUrl);
                 }
             }
             else

@@ -39,13 +39,13 @@
                     </div>
 
                     <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&download=true&filename=<%=sdr["File_Name"] %>" class="contacts__btn">Download</a>
-                    <div class="todo__labels">
+                    <div class="todo__labels mar-top-20">
                         <%
                             string[] filetagfiles = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString());
                             for (var j = 0; j < filetagfiles.Length; j++)
                             {
                             %>
-                        <span class="badge badge-default"><%=filetagfiles[j] %></span>
+                        <span class="badge badge-default lb-2"><%=filetagfiles[j] %></span>
                         <%} %>
                     </div>
                     <div class="dropdown actions__item">

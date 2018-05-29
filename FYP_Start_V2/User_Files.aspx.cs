@@ -37,7 +37,16 @@ namespace FYP_Start_V2
                     }
 
                 }
-                if (Request.QueryString["tags"] != null)
+                if (Request.QueryString["delete"] != null)
+                {
+                    string id = Request.QueryString["fileids"].ToString();
+                    string query = "DELETE FROM T_Files WHERE File_Id='" + id + "'";
+                    Connection.executeQuery(query);
+                    object refUrl = ViewState["RefUrl"];
+                    if (refUrl != null)
+                        Response.Redirect((string)refUrl);
+                }
+                    if (Request.QueryString["tags"] != null)
                 {
                     string tag = Request.QueryString["tags"].ToString();
                     String query = "SELECT * FROM T_Files WHERE User_Id=" + user_id + " AND File_Tags LIKE'%" + tag + ",%' or File_Tags LIKE'%," + tag + ",%' or File_Tags LIKE'%," + tag + "%' ORDER BY File_DateCreated DESC";

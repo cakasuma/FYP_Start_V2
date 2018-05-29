@@ -52,7 +52,7 @@
                         <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
                         <div class="dropdown-menu dropdown-menu-right">
                             <button class="dropdown-item" data-toggle="modal" data-target="#modal-new-todo">Add Tags</button>
-                            <button class="dropdown-item">Delete</button>
+                            <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&delete=true&fileids=<%=sdr["File_Id"] %>" class="dropdown-item">Delete</a>
                         </div>
                     </div>
                 </div>

@@ -75,9 +75,9 @@
                 <div class="header__logo hidden-sm-down">
                     <h1><a href="User_Home.aspx">AFMOS System</a></h1>
                 </div>
-                <form class="search" enctype="multipart/form-data">
+                <form class="search" enctype="multipart/form-data" action="User_Files.aspx?search=true">
                     <div class="search__inner">
-                        <input type="text" class="search__text" placeholder="Search for files, documents...">
+                        <input type="text" name="searchbox" class="search__text" placeholder="Search for files, documents...">
                         <i class="zmdi zmdi-search search__helper" data-ma-action="search-close"></i>
                     </div>
                 </form>

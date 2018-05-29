@@ -46,10 +46,19 @@ namespace FYP_Start_V2
                     if (refUrl != null)
                         Response.Redirect((string)refUrl);
                 }
-                    if (Request.QueryString["tags"] != null)
+                if (Request.QueryString["tags"] != null)
                 {
                     string tag = Request.QueryString["tags"].ToString();
                     String query = "SELECT * FROM T_Files WHERE User_Id=" + user_id + " AND File_Tags LIKE'%" + tag + ",%' or File_Tags LIKE'%," + tag + ",%' or File_Tags LIKE'%," + tag + "%' ORDER BY File_DateCreated DESC";
+                    SqlConnection conn = Connection.getConnection();
+                    conn.Open();
+                    SqlCommand cm = new SqlCommand(query, conn);
+                    sdr = cm.ExecuteReader();
+                }
+                if (Request.QueryString["searchbox"] != null)
+                {
+                    string searchs = Request.QueryString["searchbox"].ToString();
+                    String query = "SELECT * FROM T_Files WHERE User_Id=" + user_id + " AND File_Name LIKE '%"+searchs+"%'";
                     SqlConnection conn = Connection.getConnection();
                     conn.Open();
                     SqlCommand cm = new SqlCommand(query, conn);

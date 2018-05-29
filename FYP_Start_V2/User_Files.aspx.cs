@@ -31,10 +31,10 @@ namespace FYP_Start_V2
                         SqlCommand cm = new SqlCommand(query, conn);
                         sdr = cm.ExecuteReader();
                     }
-                    
+
                 }
 
-                if(Request.QueryString["download"]!= null)
+                if (Request.QueryString["download"] != null)
                 {
 
                     string filename = Request.QueryString["filename"];
@@ -49,13 +49,31 @@ namespace FYP_Start_V2
                     {
                         File.Delete(filedec);
                     }
-                   
+
+                }
+                if (Request.QueryString["addtags"] != null)
+                {
+                    string labels = Request.Form["taglabels[]"];
+                    string fileid = Request.Form["fileid"];
+                    string[] filetags = Connection.loadTags(user_id);
+                    
+                    string[] labelArray = labels.Split(',');
+                    string[] newtags = new String[filetags.Length+labelArray.Length];
+                    filetags.CopyTo(newtags, 0);
+                    labelArray.CopyTo(newtags, filetags.Length);
+                    string[] realNewTags = newtags.Distinct().ToArray();
+                    string realnewTagsyeah = string.Join(",", realNewTags);
+                    string query = "UPDATE T_Files SET File_Tags='"+labels+"' WHERE File_Id='"+fileid+"'";
+                    Connection.executeQuery(query);
+                    string query2 = "UPDATE T_User SET User_Tags='" + realnewTagsyeah + "' WHERE User_Id='" + user_id + "'";
+                    Connection.executeQuery(query2);
                 }
             }
             else
             {
                 Response.Redirect("Login_Register.aspx");
             }
+
 
         }
 

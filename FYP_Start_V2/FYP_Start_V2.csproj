@@ -101,6 +101,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin_Manage_Users.aspx" />
+    <Content Include="css\tags.css" />
     <Content Include="Default_About_Us.aspx" />
     <Content Include="Admin_Add_Video.aspx" />
     <Content Include="Admin_Decryption_Stat.aspx" />
@@ -126,6 +127,7 @@
     <Content Include="img\music.png" />
     <Content Include="img\video.png" />
     <Content Include="js\sweetalert.js" />
+    <Content Include="js\tags.js" />
     <Content Include="Login_Register.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="packages.config" />

@@ -81,6 +81,60 @@ namespace FYP_Start_V2
 
         }
 
+        public static string[] loadTags(string user_id)
+        {
+            string[] file_tags = { };
+            String sqlQ = "Select User_Tags From T_User Where User_Id='" + user_id + "'";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    file_tags = sdr["User_Tags"].ToString().Split(',');
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return file_tags;
+        }
+
+        public static string[] loadTagsFile(string file_id)
+        {
+            string[] file_tags = { };
+            String sqlQ = "Select File_Tags From T_Files Where File_Id='" + file_id + "'";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    file_tags = sdr["File_Tags"].ToString().Split(',');
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return file_tags;
+        }
+
         public bool Login(String email, string password)
         {
             string hashpassword = new Cryptography().HashPass(password);

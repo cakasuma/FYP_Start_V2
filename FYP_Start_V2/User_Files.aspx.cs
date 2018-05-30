@@ -49,7 +49,7 @@ namespace FYP_Start_V2
                 if (Request.QueryString["tags"] != null)
                 {
                     string tag = Request.QueryString["tags"].ToString();
-                    String query = "SELECT * FROM T_Files WHERE User_Id=" + user_id + " AND File_Tags LIKE'%" + tag + ",%' or File_Tags LIKE'%," + tag + ",%' or File_Tags LIKE'%," + tag + "%' ORDER BY File_DateCreated DESC";
+                    String query = "SELECT * FROM T_Files WHERE (User_Id=" + user_id + " AND (File_Tags LIKE'%" + tag + ",%' or File_Tags LIKE'%," + tag + ",%' or File_Tags LIKE'%," + tag + "%')) ORDER BY File_DateCreated DESC";
                     SqlConnection conn = Connection.getConnection();
                     conn.Open();
                     SqlCommand cm = new SqlCommand(query, conn);

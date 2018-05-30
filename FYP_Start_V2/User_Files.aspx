@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="User_Files.aspx.cs" Inherits="FYP_Start_V2.User_Files" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    
+
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -28,8 +28,15 @@
                 {
                 %>
             <div class="col-xl-2 col-lg-3 col-sm-4 col-6">
+                <div class="dropdown actions__item float-right">
+                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <button class="dropdown-item" data-toggle="modal" data-target="#modal-new-todo">Add Tags</button>
+                            <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&delete=true&fileids=<%=sdr["File_Id"] %>" class="dropdown-item">Delete</a>
+                        </div>
+                    </div>
                 <div class="contacts__item">
-
+                    
                     <div class="contacts__img padding-12">
                         <img src="img/Files/<%=sdr["File_Category"].ToString() %>.png" alt="">
                     </div>
@@ -41,20 +48,14 @@
                     <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&download=true&filename=<%=sdr["File_Name"] %>" class="contacts__btn">Download</a>
                     <div class="todo__labels mar-top-20">
                         <%
-                            string[] filetagfiles = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString(), Session["Email"].ToString());
+                            string[] filetagfiles = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString(), user_id);
                             for (var j = 0; j < filetagfiles.Length; j++)
                             {
                             %>
                         <span class="badge badge-default lb-2"><%=filetagfiles[j] %></span>
                         <%} %>
                     </div>
-                    <div class="dropdown actions__item">
-                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
-                        <div class="dropdown-menu dropdown-menu-right">
-                            <button class="dropdown-item" data-toggle="modal" data-target="#modal-new-todo">Add Tags</button>
-                            <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&delete=true&fileids=<%=sdr["File_Id"] %>" class="dropdown-item">Delete</a>
-                        </div>
-                    </div>
+
                 </div>
 
             </div>
@@ -72,7 +73,7 @@
                                         <select id="tags" class="a form-control js-example-basic-multiple" name="taglabels[]" multiple="multiple">
                                             <option disabled>Select a Label</option>
                                             <%
-                                                string[] filetagsfile = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString(), Session["Email"].ToString());
+                                                string[] filetagsfile = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString(), user_id);
                                                 for (var i = 0; i < filetags.Length; i++)
                                                 {
                                                     if (filetagsfile.Contains(filetags[i]))

@@ -13938,5 +13938,9 @@ img-new{
     margin-bottom:2px;
 }
 
+.padabs{
+    position:absolute;
+    padding-right:30px;
+}
 
 

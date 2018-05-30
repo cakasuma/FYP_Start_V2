@@ -86,7 +86,7 @@
                     <i class="zmdi zmdi-account-circle"></i>
                     Hi there! Please Sign in
 
-                    <div class="actions actions--inverse login__block__actions">
+                    <div class="actions actions--inverse float-right padabs">
                         <div class="dropdown">
                             <i data-toggle="dropdown" class="zmdi zmdi-more-vert actions__item"></i>
 

@@ -108,10 +108,10 @@ namespace FYP_Start_V2
             return file_tags;
         }
 
-        public static string[] loadTagsFile(string file_id)
+        public static string[] loadTagsFile(string file_id, string user_id)
         {
             string[] file_tags = { };
-            String sqlQ = "Select File_Tags From T_Files Where File_Id='" + file_id + "'";
+            String sqlQ = "Select File_Tags From T_Files Where File_Id='" + file_id + "' AND User_Id='"+ user_id + "'";
             SqlConnection conn = Connection.getConnection();
             conn.Open();
             SqlCommand cm = new SqlCommand(sqlQ, conn);

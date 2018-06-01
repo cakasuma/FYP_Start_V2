@@ -60,8 +60,9 @@ namespace FYP_Start_V2
 
         public void DecryptFile(string password, string inputFile, string outputFile)
         {
-
+            try
             {
+
 
                 UnicodeEncoding UE = new UnicodeEncoding();
                 byte[] key = UE.GetBytes(password.Trim());
@@ -83,8 +84,12 @@ namespace FYP_Start_V2
                 fsOut.Close();
                 cs.Close();
                 fsCrypt.Close();
-
             }
+            catch(Exception err)
+            {
+                System.Diagnostics.Debug.WriteLine(err);
+            }
+            
         }
     }
 }

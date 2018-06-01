@@ -64,8 +64,8 @@
                             <h2 class="card-title text-center">All your files are here</h2>
                             <small class="card-subtitle text-center">Categorized</small>
                         </div>
-                        <div style="margin: auto;margin-bottom:30px">
-                        <div class="row" id="wrefresh">
+                        <div id="wrefresh" style="margin: auto;margin-bottom:30px">
+                        <div class="row">
                                 <a href="User_Files.aspx?file_category=document&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/documents.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=doc %></span></a>
                                 <a href="User_Files.aspx?file_category=compressed&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/compressed.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=com %></span></a>
                                 <a href="User_Files.aspx?file_category=application&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/application.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=app %></span></a>

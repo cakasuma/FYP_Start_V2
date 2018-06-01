@@ -1,4 +1,4 @@
-@charset "UTF-8";
+﻿@charset "UTF-8";
 
 audio, canvas, progress, video {
     display: inline-block
@@ -13938,9 +13938,9 @@ img-new{
     margin-bottom:2px;
 }
 
-.padabs{
-    position:absolute;
-    padding-right:30px;
+.padabs {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
 }
-
 

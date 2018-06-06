@@ -38,6 +38,21 @@
             var password = document.getElementById("pass")
                 , confirm_password = document.getElementById("confirm_pass");
 
+            function hasNumber(myString) {
+                return /\d/.test(myString);
+            }
+            function valpass() {
+                if (password.value.length < 6) {
+                    password.setCustomValidity("Must be 6 or more characters");
+                }
+                else if (!hasNumber(password.value)) {
+                    password.setCustomValidity("Must be combination of numbers and characters");
+                }
+                else {
+                    password.setCustomValidity('');
+                }
+            }
+
             function validatePassword() {
                 if (password.value != confirm_password.value) {
                     confirm_password.setCustomValidity("Passwords do not match");
@@ -46,7 +61,7 @@
                 }
             }
 
-            password.onchange = validatePassword;
+            password.onchange = valpass;
             confirm_password.onkeyup = validatePassword;
 
         });

@@ -111,6 +111,7 @@ namespace FYP_Start_V2
                 String Name = Request.Form["namereg"];
                 String Contact = Request.Form["contactreg"];
                 String UserType = "Customer";
+                
                 String[] regUserData = {Email,hashpassword,Name,Contact,UserType};
                 int userId = Connection.executeQueryRegister(regUserData);
                 if (userId == -1)

@@ -12,6 +12,7 @@ namespace FYP_Start_V2
     {
         public string name = "";
         public string email = "";
+        public string photourl = "";
         public string userid = "";
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -20,6 +21,7 @@ namespace FYP_Start_V2
                 email = Session["email"].ToString();
                 name = Connection.getUserName(email);
                 userid = Connection.getUserID(email);
+                photourl = Connection.getPhotoUrl(email);
             }
         }
 

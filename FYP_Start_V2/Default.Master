@@ -59,7 +59,7 @@
                 </svg>
             </div>
         </div>
-        <header class="header hdr" style="z-index:25;">
+        <header class="header hdr" style="z-index: 25;">
             <div class="navigation-trigger hidden-xl-up" data-ma-action="aside-open" data-ma-target=".sidebar">
                 <div class="navigation-trigger__inner">
                     <i class="navigation-trigger__line"></i>
@@ -128,8 +128,8 @@
                     <a href="User_Home.aspx?checkverification=true">Check Verification</a>
                 </li>
                 <%}
-                else
-                { %>
+                    else
+                    { %>
                 <li>
                     <a href="Login_Register.aspx">Login OR Register</a>
                 </li>
@@ -144,7 +144,14 @@
                             %>
                 <div class="user">
                     <div class="user__info" data-toggle="dropdown">
+                        <%if (photourl == "")
+                            { %>
                         <img class="user__img" src="img/guestmd.png" alt="">
+                        <%}
+                        else
+                        { %>
+                        <img class="user__img" src="img/<%=photourl %>" alt="">
+                        <%} %>
                         <div>
                             <div class="user__name"><%=name %></div>
                             <div class="user__email"><%=email %></div>
@@ -185,7 +192,7 @@
                             %>
                     <li class="@@labelactive"><a href="User_Files.aspx?tags=<%=tags[i] %>"><i class="zmdi zmdi-label-alt"></i><%=tags[i] %></a></li>
                     <%}
-                    } %>
+                        } %>
 
                     <li class="navigation mar-top-60">Information</li>
                     <li class="@@videoactive"><a href="App_Video_Learn.aspx"><i class="zmdi zmdi-collection-video"></i>Education Videos</a></li>

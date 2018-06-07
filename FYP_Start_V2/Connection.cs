@@ -232,5 +232,20 @@ namespace FYP_Start_V2
             return userID;
         }
 
+        public static string getPhotoUrl(string userEmail)
+        {
+            string url = "";
+            String query = "Select Photo_URL from T_User where Email= '" + userEmail + "'";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            while (sdr.Read())
+            {
+                url = sdr["Photo_URL"].ToString();
+            }
+
+            return url;
+        }
     }
 }

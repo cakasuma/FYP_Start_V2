@@ -10,6 +10,9 @@ namespace FYP_Start_V2
 {
     public class Cryptography
     {
+        public static string encdecspeed = "";
+        public static string pubkey = "";
+        public static string prikey = "";
         public string HashPass(string password)
         {
             if (String.IsNullOrEmpty(password))

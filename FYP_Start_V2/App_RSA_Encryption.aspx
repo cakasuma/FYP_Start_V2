@@ -1,15 +1,96 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="App_RSA_Encryption.aspx.cs" Inherits="FYP_Start_V2.App_RSA_Encryption" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="App_RSA_Encryption.aspx.cs" Inherits="FYP_Start_V2.App_RSA_Encryption" %>
 
-<!DOCTYPE html>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="content__inner">
+        <header class="content__title">
+            <h1>RSA Encryption</h1>
+
+        </header>
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">What is RSA Encryption?</h2>
+                <small class="card-subtitle">RSA was first described in 1977 by Ron Rivest, Adi Shamir and Leonard Adleman
+                    of the Massachusetts Institute of Technology. Public-key cryptography, also known as 
+                    asymmetric cryptography, uses two different but mathematically linked keys, one public 
+                    and one private. The public key can be shared with everyone, whereas the private key must 
+                    be kept secret. In RSA cryptography, both the public and the private keys can encrypt a 
+                    message; the opposite key from the one used to encrypt a message is used to decrypt it. 
+                    This attribute is one reason why RSA has become the most widely used asymmetric algorithm:
+                    It provides a method of assuring the confidentiality, integrity, authenticity and non-
+                    reputability of electronic communications and data storage.</small>
+            </div>
         </div>
-    </form>
-</body>
-</html>
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Encryption Test</h2>
+                <small class="card-subtitle">test rsa encryption and see how fast it is to encrypt and decrypt data</small>
+            </div>
+            <div class="card-block">
+                <form method="post" action="App_RSA_Encryption.aspx?testencrypt=true" runat="server">
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="form-control-label">Public key</label>
+                            <textarea id="public" name="pubkey" class="form-control scroll-textarea" required><%=pubkey %></textarea>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="form-control-label">Private key</label>
+                            <textarea id="private" name="prikey" class="form-control scroll-textarea" required><%=prikey %></textarea>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="form-control-label">Text</label>
+                                <textarea id="testtext" name="testtext" class="form-control scroll-textarea" required></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <label class="form-control-label">Result</label>
+                                <textarea id="testenc" class="form-control scroll-textarea" runat="server"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <input type="submit" name="encryptButton" class="btn btn-primary" value="Encrypt and download" />
+                            </div>
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <p class="text-info" id="direfresh">the speed is <%=FYP_Start_V2.Cryptography.encdecspeed %></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="form-group">
+                                <input type="submit" name="decryptButton" class="btn btn-primary" value="Decrypt and download" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">How does it work?</h2>
+                <small class="card-subtitle">1. Firstly, client with the request for getting data send the public key which also generated by RSA Algorithm.</small>
+                <small class="card-subtitle">2. After getting public key by server, now server can encrypt the data using that publickey.</small>
+                <small class="card-subtitle">3. Server will send all the data which is encrypted to client</small>
+                <small class="card-subtitle">4. Client by using private key and public key can easily decrypt the data.</small>
+            </div>
+            <div class="card-block">
+                <img src="demo/img/rsa-encryption.jpg" class="img-fluid figure-img" />
+            </div>
+        </div>
+    </div>
+</asp:Content>

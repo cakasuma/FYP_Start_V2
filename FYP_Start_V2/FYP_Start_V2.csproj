@@ -112,6 +112,8 @@
     <Content Include="App_AES_Encryption.aspx" />
     <Content Include="App_DES_Encryption.aspx" />
     <Content Include="Default_Feedback.aspx" />
+    <Content Include="demo\img\rsa-encryption.jpg" />
+    <Content Include="demo\img\security-aes_design.jpg" />
     <Content Include="img\application.png" />
     <Content Include="img\compressed.png" />
     <Content Include="img\documents.png" />
@@ -125,6 +127,7 @@
     <Content Include="img\images.png" />
     <Content Include="img\misc.png" />
     <Content Include="img\music.png" />
+    <Content Include="img\rsa-encryption.jpg" />
     <Content Include="img\video.png" />
     <Content Include="js\sweetalert.js" />
     <Content Include="js\tags.js" />
@@ -466,6 +469,7 @@
     <Compile Include="Admin.Master.designer.cs">
       <DependentUpon>Admin.Master</DependentUpon>
     </Compile>
+    <Compile Include="EncryptorRSAKeys.cs" />
     <Compile Include="File_Type.cs" />
     <Compile Include="Reset_Password.aspx.cs">
       <DependentUpon>Reset_Password.aspx</DependentUpon>
@@ -540,6 +544,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="testEncryption\" />
     <Folder Include="Upload\" />
   </ItemGroup>
   <ItemGroup>

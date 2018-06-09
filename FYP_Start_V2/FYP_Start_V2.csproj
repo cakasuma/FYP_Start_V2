@@ -112,6 +112,7 @@
     <Content Include="App_AES_Encryption.aspx" />
     <Content Include="App_DES_Encryption.aspx" />
     <Content Include="Default_Feedback.aspx" />
+    <Content Include="demo\img\des_structure.jpg" />
     <Content Include="demo\img\rsa-encryption.jpg" />
     <Content Include="demo\img\security-aes_design.jpg" />
     <Content Include="img\application.png" />

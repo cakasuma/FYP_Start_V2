@@ -42,7 +42,7 @@ namespace FYP_Start_V2
                         Cryptography.encdecspeed = elapsedMs;
                         //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "countspeed('" + elapsedMs + "')", true);
                         //Response.Write("<script>alert(the speed of enc/dec is: '" + elapsedMs + "'ms)</script>");
-                        string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('AES','" + elapsedMs + "')";
+                        string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('AES'," + elapsedMs + ")";
                         Connection.executeQuery(query);
                         System.Diagnostics.Debug.WriteLine("---------------------------------"+elapsedMs);
                         for (int attempts = 0; attempts < 10; attempts++)
@@ -100,7 +100,7 @@ namespace FYP_Start_V2
                         Cryptography.encdecspeed = elapsedMs;
                         //Page.ClientScript.RegisterStartupScript(this.GetType(), "CallMyFunction", "countspeed('" + elapsedMs + "')", true);
                         //Response.Write("<script>alert(the speed of enc/dec is: '" + elapsedMs + "'ms)</script>");
-                        string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('AES_Decrypt','" + elapsedMs + "')";
+                        string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('AES_Decrypt'," + elapsedMs + ")";
                         Connection.executeQuery(query);
                         System.Diagnostics.Debug.WriteLine("---------------------------------" + elapsedMs);
                         for (int attempts = 0; attempts < 10; attempts++)

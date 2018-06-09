@@ -49,10 +49,10 @@
                     <div class="todo__labels mar-top-20">
                         <%
                             string[] filetagfiles = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString(), user_id);
-                            for (var j = 0; j < filetagfiles.Length; j++)
+                            for (var i = 0; i < filetagfiles.Length; i++)
                             {
                             %>
-                        <span class="badge badge-default lb-2"><%=filetagfiles[j] %></span>
+                        <span class="badge badge-default lb-2"><%=filetagfiles[i] %></span>
                         <%} %>
                     </div>
 

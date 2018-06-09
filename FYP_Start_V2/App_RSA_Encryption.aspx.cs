@@ -35,8 +35,7 @@ namespace FYP_Start_V2
                     Cryptography.pubkey = pubkey;
                     Cryptography.prikey = prikey;
                     testenc.InnerText = encrypted;
-
-                    string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('RSA','" + elapsedMs + "')";
+                    string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('RSA'," + elapsedMs + ")";
                     Connection.executeQuery(query);
                 }
                 if (Request.Form["decryptButton"] != null)
@@ -48,7 +47,7 @@ namespace FYP_Start_V2
                     elapsedMs = watch.ElapsedMilliseconds.ToString();
                     Cryptography.encdecspeed = elapsedMs;
                     testenc.InnerText = decrypted;
-                    string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('RSA_Decrypt','" + elapsedMs + "')";
+                    string query = "INSERT INTO T_Encryption (Enc_type, Enc_speed) VALUES ('RSA_Decrypt'," + elapsedMs + ")";
                     Connection.executeQuery(query);
                 }
             }

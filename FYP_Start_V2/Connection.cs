@@ -81,6 +81,85 @@ namespace FYP_Start_V2
 
         }
 
+        public static int getaesaverage()
+        {
+            int result = 0;
+            String sqlQ = "Select Id, avg(Enc_speed) as averagespeed From T_Encryption Where Enc_type='AES' GROUP BY Id";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    result = Convert.ToInt32(sdr["averagespeed"]);
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return result;
+        }
+
+        public static int getdesaverage()
+        {
+            int result = 0;
+            String sqlQ = "Select Id, avg(Enc_speed) as averagespeed From T_Encryption Where Enc_type='DES' GROUP BY Id";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    result = Convert.ToInt32(sdr["averagespeed"]);
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return result;
+        }
+        public static int getrsaaverage()
+        {
+            int result = 0;
+            String sqlQ = "Select Id, avg(Enc_speed) as averagespeed From T_Encryption Where Enc_type='RSA' GROUP BY Id";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    result = Convert.ToInt32(sdr["averagespeed"]);
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return result;
+        }
         public static string[] loadTags(string user_id)
         {
             string[] file_tags = { };

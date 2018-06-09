@@ -92,6 +92,54 @@
                 </ul>
             </div>
         </div>
+        <div class="card">
+                    <div class="card-header">
+                        <h2 class="card-title">Manage Tags</h2>
+                        <small class="card-subtitle">View and delete option for your tags</small>
+                    </div>
+                     <div class="card-block">
+                         <div class="table-responsive">
+                         <table id="data-table" class="table table-bordered">
+                            <thead class="thead-inverse">
+                            <tr>
+                                <th>#</th>
+                                <th>Tag Name</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                             <tfoot>
+                            <tr>
+                                <th>#</th>
+                                <th>Tag Name</th>
+                                <th>Delete</th>
+                            </tr>
+                            </tfoot>
+                            <tbody>
+                        <%
+                            int ctr = 1;
+                            string[] tags = User_Tags.Split(',');
+                            for(int i=0;i<tags.Length;i++)
+                            {
+                                
+                            %>
+                            <tr>
+                                <th scope="row"><%=ctr %></th>
+                                <td><%=tags[i] %></td>
+                                <td><a href="User_Profile.aspx?deletetag=<%=tags[i] %>" class="btn--float">Delete</a></td>
+                            </tr>
+                        <%
+                                ctr++;
+                            } %>
+                            </tbody>
+                        </table>
+                         </div>
+                     </div>
+                  </div>
+     <script src="vendors/bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
+        <script src="vendors/bower_components/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+        <script src="vendors/bower_components/datatables.net-buttons/js/buttons.print.min.js"></script>
+        <script src="vendors/bower_components/jszip/dist/jszip.min.js"></script>
+        <script src="vendors/bower_components/datatables.net-buttons/js/buttons.html5.min.js"></script>
         <div class="modal fade" id="modal-img" tabindex="-1">
             <div class="modal-dialog">
                 <form method="post" action="User_Profile.aspx?uploadimage=true" runat="server">

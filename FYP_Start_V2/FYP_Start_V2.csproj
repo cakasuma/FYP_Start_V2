@@ -103,10 +103,7 @@
     <Content Include="Admin_Manage_Users.aspx" />
     <Content Include="css\tags.css" />
     <Content Include="Default_About_Us.aspx" />
-    <Content Include="Admin_Add_Video.aspx" />
     <Content Include="Admin_Decryption_Stat.aspx" />
-    <Content Include="Admin_Delete_Video.aspx" />
-    <Content Include="Admin_Edit_Video.aspx" />
     <Content Include="Admin_Encryption_Stat.aspx" />
     <Content Include="Admin_Home.aspx" />
     <Content Include="App_AES_Encryption.aspx" />
@@ -153,7 +150,6 @@
     <Content Include="fonts\roboto\Roboto-Regular-webfontd41d.eot" />
     <Content Include="App_RSA_Encryption.aspx" />
     <Content Include="Reset_Password.aspx" />
-    <Content Include="Search.aspx" />
     <Content Include="testEncryption.aspx" />
     <Content Include="User_Files.aspx" />
     <Content Include="User_Profile.aspx" />
@@ -373,7 +369,6 @@
     <Content Include="vendors\bower_components\trumbowyg\dist\ui\trumbowyg.min.css" />
     <Content Include="vendors\bower_components\Waves\dist\waves.min.js" />
     <Content Include="vendors\jquery.sparkline\jquery.sparkline.min.js" />
-    <Content Include="App_Video_Learn.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -392,33 +387,12 @@
     <Compile Include="Default_About_Us.aspx.designer.cs">
       <DependentUpon>Default_About_Us.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Admin_Add_Video.aspx.cs">
-      <DependentUpon>Admin_Add_Video.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_Add_Video.aspx.designer.cs">
-      <DependentUpon>Admin_Add_Video.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Admin_Decryption_Stat.aspx.cs">
       <DependentUpon>Admin_Decryption_Stat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Admin_Decryption_Stat.aspx.designer.cs">
       <DependentUpon>Admin_Decryption_Stat.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_Delete_Video.aspx.cs">
-      <DependentUpon>Admin_Delete_Video.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_Delete_Video.aspx.designer.cs">
-      <DependentUpon>Admin_Delete_Video.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Admin_Edit_Video.aspx.cs">
-      <DependentUpon>Admin_Edit_Video.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Admin_Edit_Video.aspx.designer.cs">
-      <DependentUpon>Admin_Edit_Video.aspx</DependentUpon>
     </Compile>
     <Compile Include="Admin_Encryption_Stat.aspx.cs">
       <DependentUpon>Admin_Encryption_Stat.aspx</DependentUpon>
@@ -522,26 +496,12 @@
     <Compile Include="App_RSA_Encryption.aspx.designer.cs">
       <DependentUpon>App_RSA_Encryption.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Search.aspx.cs">
-      <DependentUpon>Search.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Search.aspx.designer.cs">
-      <DependentUpon>Search.aspx</DependentUpon>
-    </Compile>
     <Compile Include="User_Profile.aspx.cs">
       <DependentUpon>User_Profile.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User_Profile.aspx.designer.cs">
       <DependentUpon>User_Profile.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="App_Video_Learn.aspx.cs">
-      <DependentUpon>App_Video_Learn.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="App_Video_Learn.aspx.designer.cs">
-      <DependentUpon>App_Video_Learn.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

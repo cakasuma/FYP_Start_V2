@@ -40,6 +40,19 @@ namespace FYP_Start_V2
                     User_Email = sdr["Email"].ToString();
                 }
 
+                if (Request.QueryString["deletetag"] != null)
+                {
+                    string tag = Request.QueryString["deletetag"];
+                    string[] userTags = User_Tags.Split(',');
+                    var list = new List<string>(userTags);
+                    list.Remove(tag);
+                    userTags = list.ToArray();
+                    string result = string.Join(",", userTags);
+                    string query = "UPDATE T_User SET User_Tags='" + result + "' WHERE User_Id='" + id + "'";
+                    Connection.executeQuery(query);
+                    Response.Redirect("User_Profile.aspx");
+                }
+
                 if (Request.QueryString["changeinfo"] != null)
                 {
                     string name = Request.Form["name"];

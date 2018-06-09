@@ -195,25 +195,11 @@
                         } %>
 
                     <li class="navigation mar-top-60">Information</li>
-                    <li class="@@videoactive"><a href="App_Video_Learn.aspx"><i class="zmdi zmdi-collection-video"></i>Education Videos</a></li>
                     <li class="@@aboutusactive"><a href="Default_About_Us.aspx"><i class="zmdi zmdi-info-outline"></i>About Us</a></li>
                     <li class="@@feedbackactive"><a href="Default_Feedback.aspx"><i class="zmdi zmdi-help-outline"></i>Feedback</a></li>
-
-                    <li class="navigation__sub @@applicationactive">
-                        <a href="#"><i class="zmdi zmdi-case-play"></i>Try Encryption</a>
-
-                        <ul>
-                            <li class="@@aesactive"><a href="App_AES_Encryption.aspx"><i class="zmdi zmdi-lock"></i>AES Encryption</a></li>
-                            <li class="@@rsaactive"><a href="App_RSA_Encryption.aspx"><i class="zmdi zmdi-lock"></i>RSA Encryption</a></li>
-                            <li class="@@desactive"><a href="App_DES_Encryption.aspx"><i class="zmdi zmdi-lock"></i>DES Encryption</a></li>
-
-                        </ul>
-                    </li>
-
-
-
-
-
+                    <li class="@@aesactive"><a href="App_AES_Encryption.aspx"><i class="zmdi zmdi-lock"></i>AES Encryption</a></li>
+                    <li class="@@rsaactive"><a href="App_RSA_Encryption.aspx"><i class="zmdi zmdi-lock"></i>RSA Encryption</a></li>
+                    <li class="@@desactive"><a href="App_DES_Encryption.aspx"><i class="zmdi zmdi-lock"></i>DES Encryption</a></li>
                 </ul>
             </div>
         </aside>
@@ -230,7 +216,7 @@
 
                     <a class="nav-link" href="Default_Feedback.aspx">Feedback</a>
 
-                    <a class="nav-link" href="App_Video_Learn.aspx">Videos</a>
+                    <a class="nav-link" href="Logout.aspx">Logout</a>
                 </ul>
             </footer>
         </section>
@@ -271,7 +257,7 @@
             var z = $zopim = function (c) { z._.push(c) }, $ = z.s =
                 d.createElement(s), e = d.getElementsByTagName(s)[0]; z.set = function (o) {
                     z.set.
-                    _.push(o)
+                        _.push(o)
                 }; z._ = []; z.set._ = []; $.async = !0; $.setAttribute("charset", "utf-8");
             $.src = "https://v2.zopim.com/?5laHXnl2lGOBjd323lArUwXMTOVNu4wX"; z.t = +new Date; $.
                 type = "text/javascript"; e.parentNode.insertBefore($, e)

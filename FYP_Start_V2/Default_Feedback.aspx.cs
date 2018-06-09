@@ -11,7 +11,16 @@ namespace FYP_Start_V2
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.QueryString["feedback"] != null)
+            {
+                string title = Request.Form["title"];
+                string name = Request.Form["name"];
+                string email = Request.Form["email"];
+                string message = Request.Form["message"];
+                string query = $"INSERT INTO T_Feedback (Title, Name, Email, Message) VALUES ('{title}','{name}','{email}','{message}')";
+                Connection.executeQuery(query);
+                Response.Redirect("Default_Feedback.aspx?submittrue=true");
+            }
         }
     }
 }

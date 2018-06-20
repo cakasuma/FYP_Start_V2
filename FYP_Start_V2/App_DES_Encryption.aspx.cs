@@ -28,9 +28,7 @@ namespace FYP_Start_V2
                     if (!isExists) System.IO.Directory.CreateDirectory(pathString);
 
                     filename = Path.GetFileName(fileupload1.PostedFile.FileName);
-
-                    var uploadpath = string.Format("{0}\\{1}", pathString, filename);
-                    var uploadenc = string.Format("{0}\\enc_{1}", pathString, filename);
+                    var uploadpathenc = string.Format("{0}\\enc_{1}", pathString, filename);
                     fileupload1.PostedFile.SaveAs(uploadpathenc);
 
                     try
@@ -90,8 +88,7 @@ namespace FYP_Start_V2
                     if (!isExists) System.IO.Directory.CreateDirectory(pathString);
 
                     filename = Path.GetFileName(fileupload1.PostedFile.FileName);
-                    var uploadpath = string.Format("{0}\\{1}", pathString, filename);
-                    var uploaddec = string.Format("{0}\\enc_{1}", pathString, filename);
+                    var uploadpathdec = string.Format("{0}\\enc_{1}", pathString, filename);
                     fileupload1.PostedFile.SaveAs(uploadpathdec);
 
                     try

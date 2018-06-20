@@ -40,6 +40,9 @@ namespace FYP_Start_V2
                 Chart1.Series["Series1"].Points.AddXY("AES", Connection.getaesaverage());
                 Chart1.Series["Series1"].Points.AddXY("DES", Connection.getdesaverage());
                 Chart1.Series["Series1"].Points.AddXY("RSA", Connection.getrsaaverage());
+                Chart2.Series["Series1"].Points.AddXY("AES", Connection.getaesaveragedec());
+                Chart2.Series["Series1"].Points.AddXY("DES", Connection.getdesaveragedec());
+                Chart2.Series["Series1"].Points.AddXY("RSA", Connection.getrsaaveragedec());
             }
             else
             {

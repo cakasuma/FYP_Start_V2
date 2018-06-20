@@ -13,18 +13,36 @@
             </div>
             <div class="card">
                 <div class="card-header">
+                    <h1>Encryption / Decryption</h1>
                 </div>
-                <div class="card-block">
-                    <asp:Chart ID="Chart1" runat="server">
-                        <Series>
-                            <asp:Series Name="Series1" YValueType="Int32">
 
-                            </asp:Series>
-                        </Series>
-                        <ChartAreas>
-                            <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
-                        </ChartAreas>
-                    </asp:Chart>
+                <div class="card-block">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="text-md-left">Encryption</div>
+                            <asp:Chart ID="Chart1" runat="server">
+                                <Series>
+                                    <asp:Series Name="Series1" YValueType="Int32">
+                                    </asp:Series>
+                                </Series>
+                                <ChartAreas>
+                                    <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                                </ChartAreas>
+                            </asp:Chart>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-md-left">Decryption</div>
+                            <asp:Chart ID="Chart2" runat="server">
+                                <Series>
+                                    <asp:Series Name="Series1"></asp:Series>
+                                </Series>
+                                <ChartAreas>
+                                    <asp:ChartArea Name="ChartArea1"></asp:ChartArea>
+                                </ChartAreas>
+                            </asp:Chart>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

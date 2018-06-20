@@ -108,6 +108,87 @@ namespace FYP_Start_V2
             return result;
         }
 
+        public static int getaesaveragedec()
+        {
+            int result = 0;
+            String sqlQ = "Select Id, avg(Enc_speed) as averagespeed From T_Encryption Where Enc_type='AES_Decrypt' GROUP BY Id";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    result = Convert.ToInt32(sdr["averagespeed"]);
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return result;
+        }
+
+        public static int getdesaveragedec()
+        {
+            int result = 0;
+            String sqlQ = "Select Id, avg(Enc_speed) as averagespeed From T_Encryption Where Enc_type='DES_Decrypt' GROUP BY Id";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    result = Convert.ToInt32(sdr["averagespeed"]);
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return result;
+        }
+
+        public static int getrsaaveragedec()
+        {
+            int result = 0;
+            String sqlQ = "Select Id, avg(Enc_speed) as averagespeed From T_Encryption Where Enc_type='RSA_Decrypt' GROUP BY Id";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(sqlQ, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
+            }
+
+            if (flag)
+            {
+                while (sdr.Read())
+                {
+                    result = Convert.ToInt32(sdr["averagespeed"]);
+                }
+
+
+            }
+            Connection.closeConnection(conn);
+            return result;
+        }
+
         public static int getdesaverage()
         {
             int result = 0;

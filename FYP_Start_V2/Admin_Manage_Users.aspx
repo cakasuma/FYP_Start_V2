@@ -29,6 +29,7 @@
                                 <th>Name</th>
                                 <th>Email</th>
                                 <th>Contact</th>
+                                <th>Notify</th>
                                 <th>Verified</th>
                                 <th>Delete</th>
                             </tr>
@@ -46,6 +47,7 @@
                                 <td><%=sdr["Email"].ToString() %></td>
                                 <td><%=sdr["Contact"].ToString() %></td>
                                 <td><%=sdr["verified"].ToString() %></td>
+                                <td><a href="Admin_Manage_Users.aspx?notifyuser=<%=sdr["Email"].ToString() %>" class="btn--float">Notify</a></td>
                                 <td><a href="Admin_Manage_Users.aspx?deleteuserid=<%=sdr["User_Id"].ToString() %>" class="btn--float">Delete</a></td>
                             </tr>
                         <%

@@ -104,7 +104,7 @@ namespace FYP_Start_V2
                     if (file != null && file.ContentLength > 0)
                     {
 
-                        var path = Path.Combine(Server.MapPath("~/Upload"));
+                        var path = Path.Combine(Server.MapPath("~/Upload/"+ user_id + ""));
                         string pathString = System.IO.Path.Combine(path.ToString());
                         var fileName1 = Path.GetFileName(file.FileName);
                         bool isExists = System.IO.Directory.Exists(pathString);
@@ -125,7 +125,7 @@ namespace FYP_Start_V2
                         }
                         catch(Exception ex)
                         {
-                            Response.Write(@"<script language='javascript'>alert('The following errors have occurred: \n" + ex + " .');</script>");
+                            Response.Write(@"<script language='javascript'>console.log('The following errors have occurred: \n" + ex + " .');</script>");
                         }
                     }
                     

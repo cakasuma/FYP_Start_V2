@@ -37,39 +37,53 @@ namespace FYP_Start_V2
             {
                 String Email = Request.Form["emailfor"];
                 string forpassid = Guid.NewGuid().ToString();
-                string name = "";
-                String query = "Select Name FROM T_User WHERE Email='" + Email + "'";
-                SqlConnection conn = Connection.getConnection();
-                conn.Open();
-                SqlCommand cm = new SqlCommand(query, conn);
-                SqlDataReader sdr = cm.ExecuteReader();
-                while (sdr.Read())
+                bool checkEmail = Connection.getUserExist(Email);
+                if (checkEmail)
                 {
-                    name = sdr["Name"].ToString();
-                }
+                    string name = "";
+                    String query = "Select Name FROM T_User WHERE Email='" + Email + "'";
+                    SqlConnection conn = Connection.getConnection();
+                    conn.Open();
+                    SqlCommand cm = new SqlCommand(query, conn);
+                    SqlDataReader sdr = cm.ExecuteReader();
+                    while (sdr.Read())
+                    {
+                        name = sdr["Name"].ToString();
+                    }
 
-                if (!string.IsNullOrEmpty(name))
-                {
+                    if (!string.IsNullOrEmpty(name))
+                    {
 
-                    MailMessage mm = new MailMessage();
-                    mm.From = new MailAddress("amammustofa@gmail.com");
-                    mm.To.Add(Email);
-                    mm.Subject = "Reset Password";
-                    string body = "Hello " + Email + ",";
-                    body += "<br /><br />Please click the following link to reset your password";
-                    body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("Login_Register.aspx", "Reset_Password.aspx?email=" + Email + "&forpassid=" + forpassid) + "'>Click here to reset your password.</a>";
-                    body += "<br /><br />Thanks";
-                    mm.Body = body;
-                    mm.IsBodyHtml = true;
-                    SmtpClient smtp = new SmtpClient();
-
-                    smtp.Send(mm);
-                    Response.Redirect("Login_Register.aspx?forpasssuccess=true");
+                        MailMessage mm = new MailMessage();
+                        mm.From = new MailAddress("amammustofa@gmail.com");
+                        mm.To.Add(Email);
+                        mm.Subject = "Reset Password";
+                        string body = "Hello " + Email + ",";
+                        body += "<br /><br />Please click the following link to reset your password";
+                        body += "<br /><a href = '" + Request.Url.AbsoluteUri.Replace("Login_Register.aspx", "Reset_Password.aspx?email=" + Email + "&forpassid=" + forpassid) + "'>Click here to reset your password.</a>";
+                        body += "<br /><br />Thanks";
+                        mm.Body = body;
+                        mm.IsBodyHtml = true;
+                        SmtpClient smtp = new SmtpClient();
+                        smtp.Host = "smtp.gmail.com";
+                        smtp.EnableSsl = true;
+                        NetworkCredential NetworkCred = new NetworkCredential("amammustofa@gmail.com", "cakaamam15951");
+                        smtp.UseDefaultCredentials = true;
+                        smtp.Credentials = NetworkCred;
+                        smtp.Port = 587;
+                        smtp.Send(mm);
+                        Response.Redirect("Login_Register.aspx?forpasssuccess=true");
+                    }
+                    else
+                    {
+                        Response.Redirect("Login_Register.aspx?forpassfailed=true");
+                    }
                 }
                 else
                 {
-                    Response.Redirect("Login_Register.aspx?forpassfailed=true");
+                    Response.Redirect("Login_Register.aspx?wrongemail=true");
                 }
+
             }
             if (Request.QueryString["Login"] != null)
             {
@@ -147,6 +161,12 @@ namespace FYP_Start_V2
                 mm.Body = body;
                 mm.IsBodyHtml = true;
                 SmtpClient smtp = new SmtpClient();
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                NetworkCredential NetworkCred = new NetworkCredential("amammustofa@gmail.com", "cakaamam15951");
+                smtp.UseDefaultCredentials = true;
+                smtp.Credentials = NetworkCred;
+                smtp.Port = 587;
                 smtp.Send(mm);
             }
             catch(Exception ex)

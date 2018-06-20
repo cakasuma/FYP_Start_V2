@@ -68,8 +68,8 @@ namespace FYP_Start_V2
                 if (Request.QueryString["download"] != null)
                 {
                     string filename = Request.QueryString["filename"];
-                    string filelocation = Server.MapPath("~/Upload/" + filename);
-                    string filedec = Server.MapPath("~/Upload/dec_" + filename);
+                    string filelocation = Server.MapPath("~/Upload/"+user_id+"/" + filename);
+                    string filedec = Server.MapPath("~/Upload/" + user_id + "/dec_" + filename);
                     new Cryptography().DecryptFile(@"myKey123", filelocation, filedec);
                     Response.ContentType = "application/octet-stream";
                     Response.AppendHeader("Content-Disposition", "attachment;filename=" + filename);

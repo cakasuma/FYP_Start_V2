@@ -34,7 +34,9 @@
                 if (getUrlVars()["loginfailed"] != null) {
                     swal("Oops", "Login Failed", "error");
                 }
-
+                if (getUrlVars()["wrongemail"] != null) {
+                    swal("Oops", "Email is not exist in the database", "error");
+                }
 
                 if (getUrlVars()["forpasssuccess"] != null) {
                     swal("Success!", "Please check your email to reset the password", "success");

@@ -24,7 +24,7 @@ namespace FYP_Start_V2
             if(Request.QueryString["deleteuserid"] != null)
             {
                 string user_id = Request.QueryString["deleteuserid"].ToString();
-                string query = "DELETE FROM T_User WHERE User_Id='"+user_id+"';DELETE FROM UserActivation WHERE UserId='"+user_id+"'";
+                string query = "DELETE FROM UserActivation WHERE UserId='" + user_id + "';DELETE FROM T_User WHERE User_Id='"+user_id+"'";
                 Connection.executeQuery(query);
                 Response.Redirect("Admin_Manage_Users.aspx");
             }

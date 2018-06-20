@@ -62,7 +62,7 @@ namespace FYP_Start_V2
                 }
                 if (Request.QueryString["deleteaccount"] != null)
                 {
-                    string query = "DELETE FROM T_User WHERE User_Id="+id+";DELETE FROM UserActivation WHERE UserId=" + id + ";DELETE FROM T_Files WHERE User_Id=" + id + "";
+                    string query = "DELETE FROM UserActivation WHERE UserId=" + id + ";DELETE FROM T_Files WHERE User_Id=" + id + ";DELETE FROM T_User WHERE User_Id=" + id+"";
                     Connection.executeQuery(query);
                 }
                 if (Request.QueryString["uploadimage"] != null)

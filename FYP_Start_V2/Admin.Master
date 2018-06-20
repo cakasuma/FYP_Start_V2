@@ -150,11 +150,7 @@
                     <li class="navigation mar-top-20">Admin Options</li>
                     <li class="@@manageusersactive"><a href="Admin_Manage_Users.aspx"><i class="zmdi zmdi-view-week"></i>Manage Users</a></li>
 
-                    <li class="@@manageencactive"><a href="Admin_Encryption_Stat.aspx"><i class="zmdi zmdi-view-week"></i>View Encryption Stats</a></li>
-
-                    <li class="navigation mar-top-60">Information</li>
-                    <li class="@@aboutusactive"><a href="Default_About_Us.aspx"><i class="zmdi zmdi-info-outline"></i>About Us</a></li>
-                    <li class="@@feedbackactive"><a href="Default_Feedback.aspx"><i class="zmdi zmdi-help-outline"></i>Feedback</a></li>
+                    <li class="@@manageencactive"><a href="Admin_Encryption_Stat.aspx"><i class="zmdi zmdi-info-outline"></i>View Encryption Stats</a></li>
 
 
 

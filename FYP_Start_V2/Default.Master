@@ -59,7 +59,7 @@
                 </svg>
             </div>
         </div>
-        <header class="header hdr" style="z-index: 25;">
+        <header class="header hdr" style="z-index: 50;">
             <div class="navigation-trigger hidden-xl-up" data-ma-action="aside-open" data-ma-target=".sidebar">
                 <div class="navigation-trigger__inner">
                     <i class="navigation-trigger__line"></i>

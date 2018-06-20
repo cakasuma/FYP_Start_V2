@@ -407,5 +407,21 @@ namespace FYP_Start_V2
 
             return url;
         }
+
+        public static bool getUserExist(string userEmail)
+        {
+            bool result = false;
+            String query = "Select Email from T_User where Email= '" + userEmail + "'";
+            SqlConnection conn = Connection.getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+
+            if (sdr.HasRows)
+            {
+                result = true;
+            }
+            return result;
+        }
     }
 }

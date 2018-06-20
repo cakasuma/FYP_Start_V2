@@ -16,7 +16,7 @@ namespace FYP_Start_V2
             if (Session["Email"] != null)
             {
                 
-                string query = "SELECT * FROM T_Feedback ORDER BY DESC";
+                string query = "SELECT * FROM T_Feedback ORDER BY Feedback_Id DESC";
                 SqlConnection conn = Connection.getConnection();
                 conn.Open();
                 SqlCommand cm = new SqlCommand(query, conn);

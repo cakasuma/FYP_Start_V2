@@ -26,10 +26,17 @@ namespace FYP_Start_V2
                 if (Request.Form["encryptButton"] != null)
                 {
                     string key = Request.Form["key"];
-                    string filepath = Server.MapPath("//testEncryption//");
+
+                    var path = Path.Combine(Server.MapPath("~/testEncryption"));
+                    string pathString = System.IO.Path.Combine(path.ToString());
+                    bool isExists = System.IO.Directory.Exists(pathString);
+                    if (!isExists) System.IO.Directory.CreateDirectory(pathString);
+
                     filename = Path.GetFileName(fileupload1.PostedFile.FileName);
-                    uploadpath = string.Format("{0}{1}", filepath, filename);
-                    uploadenc = string.Format("{0}enc_{1}", filepath, filename);
+
+                    var uploadpath = string.Format("{0}\\{1}", pathString, filename);
+                    var uploadenc = string.Format("{0}\\enc_{1}", pathString, filename);
+
                     fileupload1.PostedFile.SaveAs(uploadpath);
 
                     try
@@ -84,10 +91,15 @@ namespace FYP_Start_V2
                 if (Request.Form["decryptButton"] != null)
                 {
                     string key = Request.Form["key"];
-                    string filepath = Server.MapPath("//testEncryption//");
+
+                    var path = Path.Combine(Server.MapPath("~/testEncryption"));
+                    string pathString = System.IO.Path.Combine(path.ToString());
+                    bool isExists = System.IO.Directory.Exists(pathString);
+                    if (!isExists) System.IO.Directory.CreateDirectory(pathString);
+
                     filename = Path.GetFileName(fileupload1.PostedFile.FileName);
-                    uploadpath = string.Format("{0}{1}", filepath, filename);
-                    uploaddec = string.Format("{0}dec_{1}", filepath, filename);
+                    var uploadpath = string.Format("{0}\\{1}", pathString, filename);
+                    var uploaddec = string.Format("{0}\\enc_{1}", pathString, filename);
                     fileupload1.PostedFile.SaveAs(uploadpath);
 
                     try

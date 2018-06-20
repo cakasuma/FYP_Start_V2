@@ -43,7 +43,7 @@
         <div class="card">
             <div class="card-header">
                 <h2 class="card-title">Encryption Test</h2>
-                <small class="card-subtitle">test aes encryption and see how fast it is to encrypt and decrypt data</small>
+                <small class="card-subtitle">test aes encryption and see how fast it is to encrypt and decrypt data. anyway, do not forget your key</small>
             </div>
             <div class="card-block">
                 <form method="post" action="App_AES_Encryption.aspx?testencrypt=true" runat="server">

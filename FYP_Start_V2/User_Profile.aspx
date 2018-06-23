@@ -14,6 +14,7 @@
                     <i data-toggle="dropdown" class="zmdi zmdi-more-vert"></i>
                     <div class="dropdown-menu dropdown-menu-right">
                         <a href="Reset_Password.aspx" class="dropdown-item">Change Password</a>
+                        <a href="Reset_Key.aspx" class="dropdown-item">Change Secret Key</a>
                         <a href="#modal-default" class="dropdown-item" data-toggle="modal" data-target="#modal-default">Change Information</a>
                         <a href="#modal-delete" class="dropdown-item" data-toggle="modal" data-target="#modal-delete">Delete Account</a>
                     </div>

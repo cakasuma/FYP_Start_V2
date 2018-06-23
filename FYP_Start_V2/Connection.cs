@@ -53,6 +53,7 @@ namespace FYP_Start_V2
             cmd.Parameters.AddWithValue("@Name", regUserData[2]);
             cmd.Parameters.AddWithValue("@Contact", regUserData[3]);
             cmd.Parameters.AddWithValue("@User_Type", regUserData[4]);
+            cmd.Parameters.AddWithValue("@secret_key", regUserData[5]);
             try
             {
                 conn.Open();
@@ -315,6 +316,24 @@ namespace FYP_Start_V2
                     System.Web.HttpContext.Current.Session["UserType"] = sdr["User_Type"].ToString();
                 }
 
+            }
+            closeConnection(conn);
+            return flag;
+        }
+
+        public bool keyValidate(String id, string key)
+        {
+            string hashkey = new Cryptography().HashPass(key);
+            System.Diagnostics.Debug.WriteLine(hashkey);
+            String query = "SELECT User_Id, secret_key from T_User where User_Id = '" + id + "' and secret_key = '" + hashkey + "';";
+            SqlConnection conn = getConnection();
+            conn.Open();
+            SqlCommand cm = new SqlCommand(query, conn);
+            SqlDataReader sdr = cm.ExecuteReader();
+            bool flag = false;
+            if (sdr.HasRows)
+            {
+                flag = true;
             }
             closeConnection(conn);
             return flag;

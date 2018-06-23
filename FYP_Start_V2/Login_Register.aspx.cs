@@ -124,9 +124,11 @@ namespace FYP_Start_V2
                 System.Diagnostics.Debug.WriteLine(hashpassword);
                 String Name = Request.Form["namereg"];
                 String Contact = Request.Form["contactreg"];
+                string securityKey = Request.Form["seckey"];
+                string hashsecuritykey = new Cryptography().HashPass(securityKey);
                 String UserType = "Customer";
                 
-                String[] regUserData = {Email,hashpassword,Name,Contact,UserType};
+                String[] regUserData = {Email,hashpassword,Name,Contact,UserType, hashsecuritykey };
                 int userId = Connection.executeQueryRegister(regUserData);
                 if (userId == -1)
                 {

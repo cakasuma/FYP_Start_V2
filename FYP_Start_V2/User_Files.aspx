@@ -43,8 +43,8 @@
                         <strong title="<%=sdr["File_Name"].ToString() %>" data-toggle="tooltip" data-placement="bottom"><%=sdr["File_Name"].ToString() %></strong>
                         <small><%=sdr["File_Status"].ToString() %></small>
                     </div>
-
-                    <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&download=true&filename=<%=sdr["File_Name"] %>" class="contacts__btn">Download</a>
+                    <button class="dropdown-item" data-toggle="modal" data-target="#modal-download">Download</button>
+                    <%--                    <a href="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&download=true&filename=<%=sdr["File_Name"] %>" class="contacts__btn">Download</a>--%>
                     <div class="todo__labels mar-top-20">
                         <%
                             string[] filetagfiles = FYP_Start_V2.Connection.loadTagsFile(sdr["File_Id"].ToString(), user_id);
@@ -57,6 +57,30 @@
 
                 </div>
 
+            </div>
+            <div class="modal fade" id="modal-download" tabindex="-1">
+                <div class="modal-dialog modal-sm">
+                    <form method="post" action="User_Files.aspx?file_category=<%=Request.QueryString["file_category"] %>&notags=<%=Request.QueryString["notags"] %>&download=true&filename=<%=sdr["File_Name"] %>">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title">Download</h5>
+                            </div>
+                            <div class="modal-body">
+
+                                <div class="form-group form-group--float form-group--centered">
+                                    <input type="password" name="seckey" class="form-control" required>
+                                    <label>Enter Secret Key</label>
+                                    <i class="form-group__bar"></i>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-link">Download</button>
+
+                                <button type="button" class="btn btn-link" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
             <div class="modal fade" id="modal-new-todo" tabindex="-1">
 

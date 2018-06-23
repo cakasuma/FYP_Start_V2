@@ -1,73 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Reset_Password.aspx.cs" Inherits="FYP_Start_V2.Reset_Password" %>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head runat="server">
-    <title></title>
-            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-        <!-- Vendor styles -->
-        <link rel="stylesheet" href="vendors/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
-        <link rel="stylesheet" href="vendors/bower_components/animate.css/animate.min.css">
-
-        <!-- App styles -->
-        <link rel="stylesheet" href="css/app.min.css">
-        <script src="vendors/bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="js/sweetalert.js"></script>
-    <script type="text/javascript">
-        function getUrlVars() {
-            var vars = [], hash;
-            var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
-            for (var i = 0; i < hashes.length; i++) {
-                hash = hashes[i].split('=');
-                vars.push(hash[0]);
-                vars[hash[0]] = hash[1];
-            }
-            return vars;
-        }
-        $(document).ready(function () {
+﻿<%@ Page Language="C#" MasterPageFile="~/Default.Master" AutoEventWireup="true" CodeBehind="Reset_Password.aspx.cs" Inherits="FYP_Start_V2.Reset_Password" %>
 
 
-            if (getUrlVars()["resetsuccess"] != null) {
-                swal("Congrats!", "Reset password successful", "success").then((value) => {
-                    window.location = "Login_Register.aspx";
-                });
-            }
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="js/sweetalert.js"></script>
+    <script src="js/reset.js"></script>
+</asp:Content>
 
-            var password = document.getElementById("pass")
-                , confirm_password = document.getElementById("confirm_pass");
-
-            function hasNumber(myString) {
-                return /\d/.test(myString);
-            }
-            function valpass() {
-                if (password.value.length < 6) {
-                    password.setCustomValidity("Must be 6 or more characters");
-                }
-                else if (!hasNumber(password.value)) {
-                    password.setCustomValidity("Must be combination of numbers and characters");
-                }
-                else {
-                    password.setCustomValidity('');
-                }
-            }
-
-            function validatePassword() {
-                if (password.value != confirm_password.value) {
-                    confirm_password.setCustomValidity("Passwords do not match");
-                } else {
-                    confirm_password.setCustomValidity('');
-                }
-            }
-
-            password.onchange = valpass;
-            confirm_password.onkeyup = validatePassword;
-
-        });
-    </script>
-</head>
-<body data-ma-theme="cyan">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     
     <div class="login">
                     <div class="login__block active" id="l-forget-password">
@@ -95,12 +34,4 @@
                 </div>
             </div>
     </div>
- 
-        <script src="vendors/bower_components/tether/dist/js/tether.min.js"></script>
-        <script src="vendors/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="vendors/bower_components/Waves/dist/waves.min.js"></script>
-        
-        <!-- App functions and actions -->
-        <script src="js/app.min.js"></script>
-</body>
-</html>
+</asp:Content>

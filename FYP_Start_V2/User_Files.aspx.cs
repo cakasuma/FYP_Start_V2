@@ -37,6 +37,7 @@ namespace FYP_Start_V2
                     }
 
                 }
+
                 if (Request.QueryString["delete"] != null)
                 {
                     string id = Request.QueryString["fileids"].ToString();
@@ -68,20 +69,30 @@ namespace FYP_Start_V2
                 if (Request.QueryString["download"] != null)
                 {
                     string filename = Request.QueryString["filename"];
-                    string filelocation = Server.MapPath("~/Upload/"+user_id+"/" + filename);
-                    string filedec = Server.MapPath("~/Upload/" + user_id + "/dec_" + filename);
-                    new Cryptography().DecryptFile(@"myKey123", filelocation, filedec);
-                    Response.ContentType = "application/octet-stream";
-                    Response.AppendHeader("Content-Disposition", "attachment;filename=" + filename);
-                    Response.TransmitFile(Server.MapPath("~/Upload/dec_" + filename));
-                    Response.Flush();
-                    if (File.Exists(filedec))
+                    string secret_key = Request.Form["seckey"];
+                    bool validatekey = new Connection().keyValidate(user_id, secret_key);
+                    if (validatekey)
                     {
-                        File.Delete(filedec);
+                        string filelocation = Server.MapPath("~/Upload/" + user_id + "/" + filename);
+                        string filedec = Server.MapPath("~/Upload/" + user_id + "/dec_" + filename);
+                        new Cryptography().DecryptFile(@"myKey123", filelocation, filedec);
+                        Response.ContentType = "application/octet-stream";
+                        Response.AppendHeader("Content-Disposition", "attachment;filename=" + filename);
+                        Response.TransmitFile("~/Upload/"+user_id+"/dec_" + filename);
+                        Response.Flush();
+                        if (File.Exists(filedec))
+                        {
+                            File.Delete(filedec);
+                        }
+                        object refUrl = ViewState["RefUrl"];
+                        if (refUrl != null)
+                            Response.Redirect((string)refUrl);
                     }
-                    object refUrl = ViewState["RefUrl"];
-                    if (refUrl != null)
-                        Response.Redirect((string)refUrl);
+                    else
+                    {
+                        Response.Write("<script>alert('wrong key')</script>");
+                    }
+
 
                 }
                 if (Request.QueryString["addtags"] != null)

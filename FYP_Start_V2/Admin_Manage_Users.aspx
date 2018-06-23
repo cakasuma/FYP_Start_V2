@@ -20,6 +20,7 @@
                                 <th>Email</th>
                                 <th>Contact</th>
                                 <th>Verified</th>
+                                <th>Notify</th>
                                 <th>Delete</th>
                             </tr>
                             </thead>

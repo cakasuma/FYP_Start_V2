@@ -66,13 +66,35 @@
                         </div>
                         <div id="wrefresh" style="margin: auto;margin-bottom:30px">
                         <div class="row">
-                                <a href="User_Files.aspx?file_category=document&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/documents.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=doc %></span></a>
-                                <a href="User_Files.aspx?file_category=compressed&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/compressed.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=com %></span></a>
-                                <a href="User_Files.aspx?file_category=application&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/application.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=app %></span></a>
-                                <a href="User_Files.aspx?file_category=image&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/images.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=img %></span></a>
-                                <a href="User_Files.aspx?file_category=music&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/music.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=mus %></span></a>
-                                <a href="User_Files.aspx?file_category=video&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/video.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=vid %></span></a>
-                                <a href="User_Files.aspx?file_category=miscellaneous&notags=false" class="card-block"><img style="width:50px;margin-bottom:10px" src="img/misc.png" alt=""><span class="align-bottom" style="padding-bottom:7px;"><%=msc %></span></a>
+                            <div class="flex-lg-row-reverse" style="display:grid">
+                                <a href="User_Files.aspx?file_category=document&notags=false" class="card-block"><img style="width:50px;" src="img/documents.png" alt=""><span class="align-bottom" style=""><%=doc %></span></a>
+                                <span class="text-center">Documents</span>
+                            </div>
+                            <div class="flex-lg-row-reverse" style="display:grid">
+                                <a href="User_Files.aspx?file_category=compressed&notags=false" class="card-block"><img style="width:50px;" src="img/compressed.png" alt=""><span class="align-bottom" style=""><%=com %></span></a>
+                                <span class="text-center">Compressed</span>
+                            </div>
+                            <div class="flex-lg-row-reverse" style="display:grid">
+                                <a href="User_Files.aspx?file_category=application&notags=false" class="card-block"><img style="width:50px;" src="img/application.png" alt=""><span class="align-bottom" style="margin-left:1px"><%=app %></span></a>
+                                <span class="text-center">Application</span>
+                            </div>  
+                            <div class="flex-lg-row-reverse" style="display:grid">
+                                 <a href="User_Files.aspx?file_category=image&notags=false" class="card-block"><img style="width:50px;" src="img/images.png" alt=""><span class="align-bottom" style=""><%=img %></span></a>
+                                <span class="text-center">Image</span>
+                            </div> 
+                            <div class="flex-lg-row-reverse" style="display:grid">
+                                <a href="User_Files.aspx?file_category=music&notags=false" class="card-block"><img style="width:50px;" src="img/music.png" alt=""><span class="align-bottom" style=""><%=mus %></span></a>
+                                <span class="text-center">Music</span>
+                            </div> 
+                            <div class="flex-lg-row-reverse" style="display:grid">
+                                <a href="User_Files.aspx?file_category=video&notags=false" class="card-block"><img style="width:50px;" src="img/video.png" alt=""><span class="align-bottom" style=""><%=vid %></span></a>
+                                <span class="text-center">Video</span>
+                            </div>    
+                            <div class="flex-lg-row-reverse" style="display:grid">
+                                <a href="User_Files.aspx?file_category=miscellaneous&notags=false" class="card-block"><img style="width:50px;" src="img/misc.png" alt=""><span class="align-bottom" style=""><%=msc %></span></a>
+                                <span class="text-center">Miscellaneous</span>
+                            </div> 
+                                
                         </div>
 
                     </div>

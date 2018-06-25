@@ -37,12 +37,17 @@ namespace FYP_Start_V2
                 //}
                 //Chart1.DataSource = dt;
                 //Chart1.DataBind();
+                Chart1.Series["Series1"].AxisLabel = "Speed (ms)";
                 Chart1.Series["Series1"].Points.AddXY("AES", Connection.getaesaverage());
                 Chart1.Series["Series1"].Points.AddXY("DES", Connection.getdesaverage());
                 Chart1.Series["Series1"].Points.AddXY("RSA", Connection.getrsaaverage());
                 Chart2.Series["Series1"].Points.AddXY("AES", Connection.getaesaveragedec());
                 Chart2.Series["Series1"].Points.AddXY("DES", Connection.getdesaveragedec());
                 Chart2.Series["Series1"].Points.AddXY("RSA", Connection.getrsaaveragedec());
+                Chart1.ChartAreas["ChartArea1"].AxisX.Title = "Cryptography";
+                Chart1.ChartAreas["ChartArea1"].AxisY.Title = "Speed (ms)";
+                Chart2.ChartAreas["ChartArea1"].AxisX.Title = "Cryptography";
+                Chart2.ChartAreas["ChartArea1"].AxisY.Title = "Speed (ms)";
             }
             else
             {

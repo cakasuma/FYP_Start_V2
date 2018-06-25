@@ -10,12 +10,12 @@
         <div class="login__block active" id="l-forget-password">
             <div class="login__block__header palette-Purple bg">
                 <i class="zmdi zmdi-account-circle"></i>
-                Reset your Password
+                Reset your Secret Key
                
             </div>
 
             <div class="login__block__body">
-                <p class="mt-4">input your new passport and forget about your previous password</p>
+                <p class="mt-4">input your new secret key and forget about your previous secret key</p>
                 <form method="post" action="Reset_Key.aspx?reset=true&email=<%=Request.QueryString["email"] %>">
                     <div class="form-group form-group--float form-group--centered">
                         <input id="pass" name="key" type="password" class="form-control">

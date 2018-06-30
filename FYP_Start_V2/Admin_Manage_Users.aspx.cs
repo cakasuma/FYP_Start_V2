@@ -36,7 +36,7 @@ namespace FYP_Start_V2
                 MailMessage mm = new MailMessage();
                 mm.From = new MailAddress("amammustofa@gmail.com");
                 mm.To.Add(Email);
-                mm.Subject = "Reset Password";
+                mm.Subject = "AFMOS Notification";
                 string body = "Hello " + Email + ",";
                 body += "<br /><br />We have identified that your account have not verified yet";
                 body += "<br />Please verify your account within a week";

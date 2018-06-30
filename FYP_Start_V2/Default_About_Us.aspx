@@ -11,7 +11,7 @@
         </header>
         <div class="card">
             <div class="card-header">
-                <h2 class="card-title">What is AES Encryption?</h2>
+                <h2 class="card-title">What is AFMOS System?</h2>
 
             </div>
             <div class="card-block">
